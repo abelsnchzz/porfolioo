@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://abelsanchez-it.github.io/sitemap.xml

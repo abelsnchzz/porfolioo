@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abel Sánchez Ramos | SysAdmin &amp; Cybersecurity</title>
+  
+  <!-- Meta Tags Primarias -->
+  <meta name="title" content="Abel Sánchez Ramos | SysAdmin &amp; Cybersecurity">
+  <meta name="description" content="Portfolio profesional de Abel Sánchez Ramos, Administrador de Sistemas y Redes Junior especializado en Ciberseguridad, infraestructura IT, Linux, Windows, Active Directory y virtualización.">
+  <meta name="author" content="Abel Sánchez Ramos">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://abelsanchez-it.github.io/">
+
+  <!-- Open Graph / Facebook / LinkedIn -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://abelsanchez-it.github.io/">
+  <meta property="og:title" content="Abel Sánchez Ramos | SysAdmin &amp; Cybersecurity">
+  <meta property="og:description" content="Portfolio profesional de Abel Sánchez Ramos, Administrador de Sistemas y Redes Junior especializado en Ciberseguridad, infraestructura IT y administración de identidades.">
+  <meta property="og:image" content="https://abelsanchez-it.github.io/assets/img/favicon.svg">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:url" content="https://abelsanchez-it.github.io/">
+  <meta name="twitter:title" content="Abel Sánchez Ramos | SysAdmin &amp; Cybersecurity">
+  <meta name="twitter:description" content="Portfolio profesional de Abel Sánchez Ramos. Administrador de Sistemas Junior especializado en Ciberseguridad.">
+  <meta name="twitter:image" content="https://abelsanchez-it.github.io/assets/img/favicon.svg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- ================= BARRA DE NAVEGACIÓN ================= -->
+  <header class="navbar" role="banner">
+    <div class="container nav-container">
+      <a href="#hero" class="nav-brand" aria-label="Inicio - Abel Sánchez Ramos">
+        <span class="nav-brand-status" aria-hidden="true"></span>
+        <span><span class="nav-brand-prefix">~/</span>abel-sanchez</span>
+      </a>
+
+      <nav role="navigation" aria-label="Navegación principal">
+        <ul class="nav-links">
+          <li><a href="#about" class="nav-link" data-i18n="nav.about">Sobre mí</a></li>
+          <li><a href="#experience" class="nav-link" data-i18n="nav.experience">Experiencia</a></li>
+          <li><a href="#stack" class="nav-link" data-i18n="nav.stack">Stack</a></li>
+          <li><a href="#cybersecurity" class="nav-link" data-i18n="nav.cybersecurity">Ciberseguridad</a></li>
+          <li><a href="#projects" class="nav-link" data-i18n="nav.projects">Proyectos</a></li>
+          <li><a href="#homelab" class="nav-link" data-i18n="nav.homelab">Homelab</a></li>
+          <li><a href="#education" class="nav-link" data-i18n="nav.education">Formación</a></li>
+          <li><a href="#contact" class="nav-link" data-i18n="nav.contact">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-controls">
+        <button id="lang-toggle" class="btn-control" aria-label="Cambiar idioma">
+          <span class="btn-icon" aria-hidden="true">🌐</span>
+          <span class="btn-text">EN</span>
+        </button>
+        <button id="theme-toggle" class="btn-control" aria-label="Cambiar tema">
+          <span class="btn-icon" aria-hidden="true">☀</span>
+          <span class="btn-text">LIGHT</span>
+        </button>
+        <a href="assets/cv/CV-Abel-Sanchez-Ramos.pdf" download class="btn btn-secondary" style="padding: 0.4rem 0.8rem; font-size: 0.75rem;" data-i18n="nav.cv">
+          Descargar CV
+        </a>
+        <button class="btn-mobile-toggle" aria-label="Abrir menú móvil" aria-expanded="false">
+          ☰
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ================= HERO ================= -->
+    <section id="hero" class="hero-section">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge-container">
+            <span class="hero-badge-dot"></span>
+            <span class="hero-badge-text" data-i18n="hero.badge">SISTEMAS IT &amp; CIBERSEGURIDAD // EARLY CAREER</span>
+          </div>
+          <h1 class="hero-title" data-i18n="hero.title">Abel Sánchez Ramos</h1>
+          <span class="hero-role" data-i18n="hero.role">Administrador de Sistemas Junior | Ciberseguridad</span>
+          <p class="hero-lead" data-i18n="hero.lead">
+            Administrador de Sistemas orientado a infraestructura IT, soporte técnico avanzado, entornos Microsoft (Active Directory, Azure AD, M365) y especialización en ciberseguridad defensiva.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary" data-i18n="hero.cta_projects">Ver proyectos técnicos</a>
+            <a href="assets/cv/CV-Abel-Sanchez-Ramos.pdf" download class="btn btn-secondary" data-i18n="nav.cv">Descargar CV</a>
+            <a href="#contact" class="btn btn-ghost" data-i18n="hero.cta_contact">Contactar</a>
+          </div>
+
+          <div class="hero-metrics">
+            <div class="metric-item">
+              <span class="metric-value" data-i18n="hero.metric_exp_val">2 Empresas</span>
+              <span class="metric-label" data-i18n="hero.metric_exp">Prácticas Profesionales</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-value" data-i18n="hero.metric_edu_val">Ciberseguridad</span>
+              <span class="metric-label" data-i18n="hero.metric_edu">Especialización</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-value" data-i18n="hero.metric_location_val">Huelva, España</span>
+              <span class="metric-label" data-i18n="hero.metric_location">Ubicación</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel de Infraestructura y Estado de Servicios -->
+        <div class="hero-panel-wrapper">
+          <div class="infra-panel">
+            <div class="infra-panel-header">
+              <div class="infra-header-title">
+                <span class="infra-indicator-dot"></span>
+                <span data-i18n="infra.panel_title">PANEL DE CONTROL DE INFRAESTRUCTURA</span>
+              </div>
+              <span class="infra-badge" data-i18n="infra.status_operational">SISTEMA ACTIVO</span>
+            </div>
+
+            <div class="infra-panel-body">
+              <!-- Bloque 1: Identidad & Nube -->
+              <div class="infra-service-card">
+                <div class="infra-service-top">
+                  <span class="infra-service-name" data-i18n="infra.serv_identity">Identidad &amp; Directorio</span>
+                  <span class="service-tag tag-verified" data-i18n="infra.tag_prod">PRODUCCIÓN</span>
+                </div>
+                <div class="infra-service-desc">Active Directory · Azure AD · Microsoft 365</div>
+              </div>
+
+              <!-- Bloque 2: Sistemas & Hipervisores -->
+              <div class="infra-service-card">
+                <div class="infra-service-top">
+                  <span class="infra-service-name" data-i18n="infra.serv_virtualization">Virtualización &amp; Servidores</span>
+                  <span class="service-tag tag-lab" data-i18n="infra.tag_lab">LABORATORIO</span>
+                </div>
+                <div class="infra-service-desc">Proxmox VE · VMware · Windows Server · Linux</div>
+              </div>
+
+              <!-- Bloque 3: Seguridad Defensiva -->
+              <div class="infra-service-card">
+                <div class="infra-service-top">
+                  <span class="infra-service-name" data-i18n="infra.serv_security">Seguridad &amp; Continuidad</span>
+                  <span class="service-tag tag-focus" data-i18n="infra.tag_focus">ESPECIALIZACIÓN</span>
+                </div>
+                <div class="infra-service-desc">Hardening · Control de Accesos · Copias de Seguridad</div>
+              </div>
+
+              <!-- Bloque 4: Redes & Soporte -->
+              <div class="infra-service-card">
+                <div class="infra-service-top">
+                  <span class="infra-service-name" data-i18n="infra.serv_support">Redes &amp; Soporte Técnico</span>
+                  <span class="service-tag tag-verified" data-i18n="infra.tag_prod">PRÁCTICAS</span>
+                </div>
+                <div class="infra-service-desc">Diagnóstico LAN · Asistencia Remota · Puestos Cliente</div>
+              </div>
+            </div>
+
+            <div class="infra-panel-footer">
+              <span class="infra-footer-meta" data-i18n="infra.footer_text">Entorno: Formación continua &amp; Experiencia profesional</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SOBRE MÍ ================= -->
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" data-i18n="about.tag">// 01. PERFIL</span>
+          <h2 class="section-title" data-i18n="about.title">Sobre mí</h2>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-text">
+            <p data-i18n="about.p1">
+              Soy Administrador de Sistemas Junior con vocación técnica por la infraestructura, el soporte y la ciberseguridad. Mi formación combina un Grado Medio (SMR), un Grado Superior (ASIR) y un Curso de Especialización en Ciberseguridad, lo que me ha otorgado una visión integral: desde el hardware y cableado hasta la administración de identidades en la nube.
+            </p>
+            <p data-i18n="about.p2">
+              Cuento con experiencia práctica en entornos reales gracias a mis periodos en Geotexan S.A. (administración de Active Directory, Azure AD, soporte e infraestructura IT) y en el Hospital Infanta Elena (mantenimiento de red, hardware y soporte crítico a personal sanitario y administrativo).
+            </p>
+            <div class="about-callout">
+              <p class="about-callout-text" data-i18n="about.callout">
+                "Mi meta profesional es integrarme en un equipo de sistemas o ciberseguridad donde pueda aplicar mis conocimientos en resolución de incidencias, control de accesos y administración segura de infraestructura."
+              </p>
+            </div>
+          </div>
+
+          <div class="about-sidebar">
+            <div class="profile-card">
+              <h3 class="profile-card-title" data-i18n="about.sidebar_title">Ficha Técnica</h3>
+              <ul class="profile-details-list">
+                <li class="profile-detail-item">
+                  <span class="detail-label" data-i18n="about.label_residence">Residencia</span>
+                  <span class="detail-value" data-i18n="about.val_residence">Huelva, España</span>
+                </li>
+                <li class="profile-detail-item">
+                  <span class="detail-label" data-i18n="about.label_langs">Idiomas</span>
+                  <span class="detail-value" data-i18n="about.val_langs">Español (Nativo) · Inglés (B1)</span>
+                </li>
+                <li class="profile-detail-item">
+                  <span class="detail-label" data-i18n="about.label_identity">Especialidad</span>
+                  <span class="detail-value" data-i18n="about.val_identity">Sistemas, Redes &amp; Seguridad</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= EXPERIENCIA ================= -->
+    <section id="experience" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" data-i18n="exp.tag">// 02. TRAYECTORIA</span>
+          <h2 class="section-title" data-i18n="exp.title">Experiencia Práctica</h2>
+          <p class="section-subtitle" data-i18n="exp.subtitle">Experiencia demostrable en entornos empresariales y sanitarios de misión crítica.</p>
+        </div>
+
+        <div class="timeline">
+          <!-- Experiencia 1: Geotexan S.A. -->
+          <article class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div>
+                  <h3 class="timeline-role" data-i18n="exp.geo_role">Administrador de Sistemas IT — Estudiante en Prácticas</h3>
+                  <span class="timeline-company" data-i18n="exp.geo_company">Geotexan S.A.</span>
+                </div>
+                <div class="timeline-meta">
+                  <span class="timeline-badge" data-i18n="exp.geo_type">Prácticas Profesionales</span>
+                  <span data-i18n="exp.geo_period">Mar 2025 — Jun 2025</span>
+                </div>
+              </div>
+
+              <ul class="timeline-responsibilities">
+                <li data-i18n="exp.geo_t1">Administración y gobierno de identidades mediante Active Directory, Azure AD y Microsoft 365 Admin Center.</li>
+                <li data-i18n="exp.geo_t2">Gestión granular de usuarios, grupos, permisos y control de accesos basados en principios de mínimo privilegio.</li>
+                <li data-i18n="exp.geo_t3">Resolución de incidencias técnicas de nivel 1 y 2, garantizando soporte eficaz a los puestos de trabajo.</li>
+                <li data-i18n="exp.geo_t4">Mantenimiento proactivo de la infraestructura IT y participación en procesos de digitalización corporativa.</li>
+                <li data-i18n="exp.geo_t5">Aplicación de medidas básicas de ciberseguridad y protección de los puestos de trabajo de la compañía.</li>
+              </ul>
+
+              <div class="tech-tags">
+                <span class="tech-tag">Active Directory</span>
+                <span class="tech-tag">Azure AD</span>
+                <span class="tech-tag">Microsoft 365</span>
+                <span class="tech-tag">Identity Management</span>
+                <span class="tech-tag">Access Control</span>
+                <span class="tech-tag">IT Support</span>
+                <span class="tech-tag">Cybersecurity</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Experiencia 2: Hospital Infanta Elena -->
+          <article class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div>
+                  <h3 class="timeline-role" data-i18n="exp.hosp_role">Técnico Informático — Estudiante en Prácticas</h3>
+                  <span class="timeline-company" data-i18n="exp.hosp_company">Hospital Infanta Elena</span>
+                </div>
+                <div class="timeline-meta">
+                  <span class="timeline-badge" data-i18n="exp.hosp_type">Prácticas Profesionales</span>
+                  <span data-i18n="exp.hosp_period">Mar 2023 — Jun 2023</span>
+                </div>
+              </div>
+
+              <ul class="timeline-responsibilities">
+                <li data-i18n="exp.hosp_t1">Diagnóstico y resolución de incidencias en redes de comunicaciones, hardware y software en entorno hospitalario.</li>
+                <li data-i18n="exp.hosp_t2">Instalación, configuración y despliegue de puestos cliente para personal sanitario y administrativo.</li>
+                <li data-i18n="exp.hosp_t3">Mantenimiento correctivo y preventivo garantizando la alta disponibilidad y continuidad del servicio.</li>
+                <li data-i18n="exp.hosp_t4">Atención y soporte técnico presencial y remoto ante incidencias operativas urgentes.</li>
+              </ul>
+
+              <div class="tech-tags">
+                <span class="tech-tag">Networking</span>
+                <span class="tech-tag">Troubleshooting</span>
+                <span class="tech-tag">Hardware Diagnostics</span>
+                <span class="tech-tag">Software Deployment</span>
+                <span class="tech-tag">IT Support</span>
+                <span class="tech-tag">Continuidad de Servicio</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= STACK TECNOLÓGICO ================= -->
+    <section id="stack" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" data-i18n="stack.tag">// 03. HABILIDADES TÉCNICAS</span>
+          <h2 class="section-title" data-i18n="stack.title">Stack Tecnológico</h2>
+          <p class="section-subtitle" data-i18n="stack.subtitle">Tecnologías y herramientas respaldadas directamente por mi formación y experiencia práctica.</p>
+        </div>
+
+        <div class="stack-grid">
+          <!-- Categoría 1: Systems & Networks -->
+          <div class="stack-category-card">
+            <div class="stack-category-header">
+              <span class="stack-category-icon font-mono">[01]</span>
+              <h3 class="stack-category-title" data-i18n="stack.cat_systems">Sistemas Operativos &amp; Redes</h3>
+            </div>
+            <div class="stack-items-list">
+              <div class="stack-item">
+                <div class="stack-item-top">
+                  <span class="stack-item-name">Windows</span>
+                  <span class="stack-item-scope">OS / Client / Server</span>
+                </div>
+                <p class="stack-item-desc" data-i18n="stack.windows_desc">Administración de clientes y entornos corporativos Windows.</p>
+              </div>
+              <div class="stack-item">
+                <div class="stack-item-top">
+                  <span class="stack-item-name">Linux</span>
+                  <span class="stack-item-scope">OS / CLI</span>
+                </div>
+                <p class="stack-item-desc" data-i18n="stack.linux_desc">Gestión por línea de comandos, servicios y administración base.</p>
+              </div>
+              <div class="stack-item">
+                <div class="stack-item-top">
+                  <span class="stack-item-name">Redes Informáticas</span>
+                  <span class="stack-item-scope">TCP/IP / LAN</span>
+                </div>
+                <p class="stack-item-desc" data-i18n="stack.networking_desc">Direccionamiento IP, resolución de incidencias LAN y cableado.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Categoría 2: Identity & Cloud -->
+          <div class="stack-category-card">
+            <div class="stack-category-header">
+              <span class="stack-category-icon font-mono">[02]</span>
+              <h3 class="stack-category-title" data-i18n="stack.cat_identity">Identidad &amp; Ecosistema Microsoft</h3>
+            </div>
+            <div class="stack-items-list">
+              <div class="stack-item">
+                <div class="stack-item-top">
+                  <span class="stack-item-name">Active Directory</span>
+                  <span class="stack-item-scope">On-Premises</span>
+                </div>
+                <p class="stack-item-desc" data-i18n="stack.ad_desc">Gestión de árboles de dominio, usuarios, grupos y políticas.</p>
+              </div>
+              <div class="stack-item">
+                <div class="stack-item-top">
+                  <span class="stack-item-name">Azure AD / Entra ID</span>
+                  <span class="stack-item-scope">Cloud Identity</span>
+                </div>
+                <p class="stack-item-desc" data-i18n="stack.azure_desc">Administración de identidades híbridas y Azure Portal.</p>
+              </div>
+              <div class="stack-item">
+                <div class="stack-item-top">
+                  <span class="stack-item-name">Microsoft 365 Admin</span>
+                  <span class="stack-item-scope">SaaS Administration</span>
+                </div>
+                <p class="stack-item-desc" data-i18n="stack.m365_desc">Gobierno de buzones, licencias y centro de administración.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Categoría 3: Virtualization -->
+          <div class="stack-category-card">
+            <div class="stack-category-header">
+              <span class="stack-category-icon font-mono">[03]</span>
+              <h3 class="stack-category-title" data-i18n="stack.cat_virtualization">Virtualización &amp; Hipervisores</h3>
+            </div>
+            <div class="stack-items-list">
+              <div class="stack-item">
+                <div class="stack-item-top">
+                  <span class="stack-item-name">Proxmox VE</span>
+                  <span class="stack-item-scope">Bare Metal Hypervisor</span>
+                </div>
+                <p class="stack-item-desc" data-i18n="stack.proxmox_desc">Entornos de virtualización en laboratorio y gestión de máquinas.</p>
+              </div>
+              <div class="stack-item">
+                <div class="stack-item-top">
+                  <span class="stack-item-name">VMware</span>
+                  <span class="stack-item-scope">Virtualization</span>
+                </div>
+                <p class="stack-item-desc" data-i18n="stack.vmware_desc">Creación y gestión de entornos virtuales para pruebas técnicas.</p>
+              </div>
+              <div class="stack-item">
+                <div class="stack-item-top">
+                  <span class="stack-item-name">VirtualBox</span>
+                  <span class="stack-item-scope">Local Testing</span>
+                </div>
+                <p class="stack-item-desc" data-i18n="stack.vbox_desc">Aislamiento de bancos de pruebas para testing de sistemas.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Categoría 4: Support & Remote Tools -->
+          <div class="stack-category-card">
+            <div class="stack-category-header">
+              <span class="stack-category-icon font-mono">[04]</span>
+              <h3 class="stack-category-title" data-i18n="stack.cat_support">Soporte Técnico &amp; Acceso Remoto</h3>
+            </div>
+            <div class="stack-items-list">
+              <div class="stack-item">
+                <div class="stack-item-top">
+                  <span class="stack-item-name">AnyDesk</span>
+                  <span class="stack-item-scope">Remote Assistance</span>
+                </div>
+                <p class="stack-item-desc" data-i18n="stack.anydesk_desc">Asistencia remota ágil a usuarios finales.</p>
+              </div>
+              <div class="stack-item">
+                <div class="stack-item-top">
+                  <span class="stack-item-name">TeamViewer</span>
+                  <span class="stack-item-scope">Enterprise Support</span>
+                </div>
+                <p class="stack-item-desc" data-i18n="stack.teamviewer_desc">Herramienta corporativa de soporte a distancia y mantenimiento.</p>
+              </div>
+              <div class="stack-item">
+                <div class="stack-item-top">
+                  <span class="stack-item-name">RustDesk</span>
+                  <span class="stack-item-scope">Open Source</span>
+                </div>
+                <p class="stack-item-desc" data-i18n="stack.rustdesk_desc">Solución de escritorio remoto alternativa y de código abierto.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CIBERSEGURIDAD ================= -->
+    <section id="cybersecurity" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" data-i18n="sec.tag">// 04. ESPECIALIZACIÓN DEFENSIVA</span>
+          <h2 class="section-title" data-i18n="sec.title">Ciberseguridad</h2>
+          <p class="section-subtitle" data-i18n="sec.subtitle">Competencias adquiridas durante el Curso de Especialización y aplicadas en proyectos de sistemas.</p>
+        </div>
+
+        <div class="security-grid">
+          <div class="security-card">
+            <div class="security-card-header">
+              <span class="security-card-icon font-mono">01</span>
+              <h3 class="security-card-title" data-i18n="sec.hardening_title">Hardening de Sistemas</h3>
+            </div>
+            <p class="security-card-desc" data-i18n="sec.hardening_desc">
+              Cierre de puertos y servicios innecesarios, minimización de superficie de ataque y aplicación de directivas seguras.
+            </p>
+            <div class="security-card-status">
+              <span class="status-dot dot-in-dev"></span>
+              <span>Área de Especialización</span>
+            </div>
+          </div>
+
+          <div class="security-card">
+            <div class="security-card-header">
+              <span class="security-card-icon font-mono">02</span>
+              <h3 class="security-card-title" data-i18n="sec.access_title">Control de Accesos &amp; Permisos</h3>
+            </div>
+            <p class="security-card-desc" data-i18n="sec.access_desc">
+              Implementación del principio de mínimo privilegio en Active Directory y sistemas locales.
+            </p>
+            <div class="security-card-status">
+              <span class="status-dot dot-in-dev"></span>
+              <span>Experiencia Práctica</span>
+            </div>
+          </div>
+
+          <div class="security-card">
+            <div class="security-card-header">
+              <span class="security-card-icon font-mono">03</span>
+              <h3 class="security-card-title" data-i18n="sec.vuln_title">Gestión de Vulnerabilidades</h3>
+            </div>
+            <p class="security-card-desc" data-i18n="sec.vuln_desc">
+              Identificación de brechas conocidas, monitorización de avisos de seguridad y aplicación de parches preventivos.
+            </p>
+            <div class="security-card-status">
+              <span class="status-dot dot-in-dev"></span>
+              <span>Formación Técnica</span>
+            </div>
+          </div>
+
+          <div class="security-card">
+            <div class="security-card-header">
+              <span class="security-card-icon font-mono">04</span>
+              <h3 class="security-card-title" data-i18n="sec.backup_title">Copias de Seguridad (Backups)</h3>
+            </div>
+            <p class="security-card-desc" data-i18n="sec.backup_desc">
+              Estrategias de respaldo para mitigar pérdidas por fallos físicos, lógicos o incidentes de ransomware.
+            </p>
+            <div class="security-card-status">
+              <span class="status-dot dot-in-dev"></span>
+              <span>Buenas Prácticas</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PROYECTOS ================= -->
+    <section id="projects" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" data-i18n="proj.tag">// 05. DEMOSTRACIÓN TÉCNICA</span>
+          <h2 class="section-title" data-i18n="proj.title">Laboratorios &amp; Proyectos</h2>
+          <p class="section-subtitle" data-i18n="proj.subtitle">Casos prácticos planificados y en desarrollo para evidenciar metodología y documentación técnica.</p>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Proyecto 1: Active Directory Lab -->
+          <article class="project-card">
+            <div class="project-status-bar">
+              <span class="project-category">Identity &amp; Systems</span>
+              <span class="badge-status badge-status-in-dev">
+                <span class="status-dot dot-in-dev"></span>
+                <span data-i18n="proj.status_dev">En desarrollo</span>
+              </span>
+            </div>
+            <h3 class="project-title" data-i18n="proj.ad_title">Laboratorio Active Directory &amp; GPO</h3>
+            <p class="project-description" data-i18n="proj.ad_desc">
+              Despliegue de un bosque local de dominio para simular una red empresarial: creación de unidades organizativas, control de accesos e implantación de políticas de contraseñas.
+            </p>
+            <div class="project-architecture">
+              <div class="project-architecture-label">Arquitectura</div>
+              <div class="project-architecture-flow" data-i18n="proj.ad_arch">Windows Server 2022 ➔ DC ➔ OUs ➔ Windows 11 Clients</div>
+            </div>
+            <div class="tech-tags" style="margin-bottom: 1rem;">
+              <span class="tech-tag">Windows Server</span>
+              <span class="tech-tag">Active Directory</span>
+              <span class="tech-tag">GPO</span>
+              <span class="tech-tag">RBAC</span>
+            </div>
+            <div class="project-actions">
+              <a href="https://github.com/abelsanchez-it/active-directory-lab" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-project" data-i18n="proj.cta_repo">Repositorio</a>
+              <a href="https://github.com/abelsanchez-it/active-directory-lab#readme" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-project" data-i18n="proj.cta_doc">Documentación</a>
+            </div>
+          </article>
+
+          <!-- Proyecto 2: Linux Server Hardening -->
+          <article class="project-card">
+            <div class="project-status-bar">
+              <span class="project-category">Security &amp; Linux</span>
+              <span class="badge-status badge-status-in-dev">
+                <span class="status-dot dot-in-dev"></span>
+                <span data-i18n="proj.status_dev">En desarrollo</span>
+              </span>
+            </div>
+            <h3 class="project-title" data-i18n="proj.linux_title">Hardening de Servidor Linux</h3>
+            <p class="project-description" data-i18n="proj.linux_desc">
+              Configuración segura de servidor Debian/Ubuntu con autenticación exclusivamente por clave SSH, reglas de cortafuegos y auditoría de servicios.
+            </p>
+            <div class="project-architecture">
+              <div class="project-architecture-label">Arquitectura</div>
+              <div class="project-architecture-flow" data-i18n="proj.linux_arch">Internet ➔ UFW / Firewall ➔ SSH Key-Only ➔ Servidor Hardened</div>
+            </div>
+            <div class="tech-tags" style="margin-bottom: 1rem;">
+              <span class="tech-tag">Linux</span>
+              <span class="tech-tag">Hardening</span>
+              <span class="tech-tag">SSH</span>
+              <span class="tech-tag">UFW</span>
+            </div>
+            <div class="project-actions">
+              <a href="https://github.com/abelsanchez-it/linux-server" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-project" data-i18n="proj.cta_repo">Repositorio</a>
+              <a href="https://github.com/abelsanchez-it/linux-server#readme" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-project" data-i18n="proj.cta_doc">Documentación</a>
+            </div>
+          </article>
+
+          <!-- Proyecto 3: Proxmox Homelab -->
+          <article class="project-card">
+            <div class="project-status-bar">
+              <span class="project-category">Virtualization</span>
+              <span class="badge-status badge-status-planned">
+                <span class="status-dot dot-planned"></span>
+                <span data-i18n="proj.status_planned">Próximamente</span>
+              </span>
+            </div>
+            <h3 class="project-title" data-i18n="proj.proxmox_title">Infraestructura Homelab en Proxmox</h3>
+            <p class="project-description" data-i18n="proj.proxmox_desc">
+              Segmentación de redes virtuales para separar entornos de pruebas de sistemas y servicios esenciales con políticas de snapshots periódicas.
+            </p>
+            <div class="project-architecture">
+              <div class="project-architecture-label">Arquitectura</div>
+              <div class="project-architecture-flow" data-i18n="proj.proxmox_arch">Hipervisor Proxmox VE ➔ VLANs ➔ VMs Linux / Windows</div>
+            </div>
+            <div class="tech-tags" style="margin-bottom: 1rem;">
+              <span class="tech-tag">Proxmox VE</span>
+              <span class="tech-tag">VLAN</span>
+              <span class="tech-tag">Snapshots</span>
+              <span class="tech-tag">Networking</span>
+            </div>
+            <div class="project-actions">
+              <a href="https://github.com/abelsanchez-it/homelab" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-project" data-i18n="proj.cta_repo">Repositorio</a>
+              <a href="https://github.com/abelsanchez-it/homelab#readme" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-project" data-i18n="proj.cta_doc">Documentación</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= HOMELAB ================= -->
+    <section id="homelab" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" data-i18n="lab.tag">// 06. ARQUITECTURA PROPUESTA</span>
+          <h2 class="section-title" data-i18n="lab.title">Homelab / IT Lab</h2>
+          <p class="section-subtitle" data-i18n="lab.subtitle">Diseño de la infraestructura de laboratorio personal utilizada para pruebas de virtualización y seguridad.</p>
+        </div>
+
+        <div class="homelab-container">
+          <div class="homelab-notice">
+            <span class="font-mono">ℹ</span>
+            <span class="homelab-notice-text" data-i18n="lab.notice">
+              Nota de transparencia técnica: Arquitectura en constante evolución, utilizada como banco de pruebas experimental y formación continua.
+            </span>
+          </div>
+
+          <div class="topology-container">
+            <div class="topology-level">
+              <div class="topology-node">
+                <div class="topology-node-title" data-i18n="lab.layer1_title">PUNTO DE ACCESO / ENLACE EXTERNO</div>
+                <div class="topology-node-desc" data-i18n="lab.layer1_desc">Conexión a red con filtrado perimetral y aislamiento</div>
+              </div>
+            </div>
+
+            <div class="topology-connector">↓ [Tráfico Aislado / Subred Lab]</div>
+
+            <div class="topology-level">
+              <div class="topology-node" style="border-color: var(--accent-cyan);">
+                <div class="topology-node-title" data-i18n="lab.layer2_title">HIPERVISOR PRINCIPAL (PROXMOX VE)</div>
+                <div class="topology-node-desc" data-i18n="lab.layer2_desc">Asignación de recursos virtualizados, gestión de almacenamiento y snapshots</div>
+              </div>
+            </div>
+
+            <div class="topology-connector">↓ [Bridges Virtuales vmbr0 / vmbr1]</div>
+
+            <div class="topology-grid-row">
+              <div class="topology-node">
+                <div class="topology-node-title" data-i18n="lab.vm1_title">VM Domain Controller</div>
+                <div class="topology-node-desc" data-i18n="lab.vm1_desc">Pruebas de Active Directory y GPO</div>
+              </div>
+              <div class="topology-node">
+                <div class="topology-node-title" data-i18n="lab.vm2_title">VM Linux Services</div>
+                <div class="topology-node-desc" data-i18n="lab.vm2_desc">Servicios de soporte y administración</div>
+              </div>
+              <div class="topology-node">
+                <div class="topology-node-title" data-i18n="lab.vm3_title">Clientes de Prueba</div>
+                <div class="topology-node-desc" data-i18n="lab.vm3_desc">Entornos aislados Windows / Linux</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FORMACIÓN OFICIAL ================= -->
+    <section id="education" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" data-i18n="edu.tag">// 07. ANTECEDENTES ACADÉMICOS</span>
+          <h2 class="section-title" data-i18n="edu.title">Formación Oficial</h2>
+          <p class="section-subtitle" data-i18n="edu.subtitle">Trayectoria académica reglada en tecnologías de la información y ciberseguridad.</p>
+        </div>
+
+        <div class="education-grid">
+          <div class="education-card featured">
+            <div class="education-period" data-i18n="edu.c1_period">2025 — 2026</div>
+            <h3 class="education-title" data-i18n="edu.c1_title">Curso de Especialización en Ciberseguridad</h3>
+            <p class="education-institution">Formación Profesional de Grado Superior</p>
+            <p class="education-desc" data-i18n="edu.c1_desc">
+              Formación técnica avanzada en hardening, análisis de incidentes, protección de redes y normativas de seguridad de la información.
+            </p>
+          </div>
+
+          <div class="education-card">
+            <div class="education-period" data-i18n="edu.c2_period">2023 — 2025</div>
+            <h3 class="education-title" data-i18n="edu.c2_title">CFGS Administración de Sistemas Informáticos en Red (ASIR)</h3>
+            <p class="education-institution">Ciclo Formativo de Grado Superior</p>
+            <p class="education-desc" data-i18n="edu.c2_desc">
+              Gestión avanzada de sistemas operativos de servidor, bases de datos, servicios de red, seguridad perimetral y virtualización.
+            </p>
+          </div>
+
+          <div class="education-card">
+            <div class="education-period" data-i18n="edu.c3_period">2021 — 2023</div>
+            <h3 class="education-title" data-i18n="edu.c3_title">CFGM Sistemas Microinformáticos y Redes (SMR)</h3>
+            <p class="education-institution">Ciclo Formativo de Grado Medio</p>
+            <p class="education-desc" data-i18n="edu.c3_desc">
+              Instalación de hardware, cableado estructurado de redes de datos, mantenimiento preventivo y configuración básica de software cliente.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CONTACTO ================= -->
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" data-i18n="contact.tag">// 08. CONTACTO DIRECTO</span>
+          <h2 class="section-title" data-i18n="contact.title">Iniciar Conversación</h2>
+          <p class="section-subtitle" data-i18n="contact.subtitle">¿Buscas un perfil junior de sistemas proactivo y con orientación a la seguridad? Contáctame.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div>
+            <ul class="contact-info-list">
+              <li class="contact-item">
+                <div class="contact-icon-box font-mono">@</div>
+                <div>
+                  <div class="contact-item-title" data-i18n="contact.email_label">Correo Electrónico</div>
+                  <a href="mailto:asannchez.2005@gmail.com" class="contact-item-value">asannchez.2005@gmail.com</a>
+                </div>
+              </li>
+              <li class="contact-item">
+                <div class="contact-icon-box font-mono">in</div>
+                <div>
+                  <div class="contact-item-title" data-i18n="contact.linkedin_label">Perfil Profesional</div>
+                  <a href="https://linkedin.com/in/abelsanchez-it" target="_blank" rel="noopener noreferrer" class="contact-item-value">linkedin.com/in/abelsanchez-it</a>
+                </div>
+              </li>
+              <li class="contact-item">
+                <div class="contact-icon-box font-mono">&lt;&gt;</div>
+                <div>
+                  <div class="contact-item-title" data-i18n="contact.github_label">Repositorios de Código</div>
+                  <a href="https://github.com/abelsanchez-it" target="_blank" rel="noopener noreferrer" class="contact-item-value">github.com/abelsanchez-it</a>
+                </div>
+              </li>
+              <li class="contact-item">
+                <div class="contact-icon-box font-mono">LOC</div>
+                <div>
+                  <div class="contact-item-title" data-i18n="contact.location_label">Ubicación</div>
+                  <span class="contact-item-value" data-i18n="contact.location_val">Huelva, España (Disponible para remoto / híbrido / presencial)</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <form id="contact-form" class="contact-form">
+            <div class="form-group">
+              <label for="cf-name" class="form-label" data-i18n="contact.form_name">Nombre completo</label>
+              <input type="text" id="cf-name" class="form-input" required placeholder="Ej. Juan Pérez" data-i18n-ph="contact.form_name_ph">
+            </div>
+            <div class="form-group">
+              <label for="cf-email" class="form-label" data-i18n="contact.form_email">Correo corporativo / personal</label>
+              <input type="email" id="cf-email" class="form-input" required placeholder="juan.perez@empresa.com" data-i18n-ph="contact.form_email_ph">
+            </div>
+            <div class="form-group">
+              <label for="cf-message" class="form-label" data-i18n="contact.form_msg">Mensaje o propuesta</label>
+              <textarea id="cf-message" class="form-textarea" required placeholder="Hola Abel, hemos visto tu perfil..." data-i18n-ph="contact.form_msg_ph"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" data-i18n="contact.form_btn">Enviar consulta vía Mailto</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <span class="footer-name">Abel Sánchez Ramos</span>
+        <span class="footer-location">Administrador de Sistemas Junior | Ciberseguridad — Huelva, España</span>
+      </div>
+
+      <ul class="footer-links">
+        <li><a href="mailto:asannchez.2005@gmail.com">Email</a></li>
+        <li><a href="https://linkedin.com/in/abelsanchez-it" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="https://github.com/abelsanchez-it" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+      </ul>
+
+      <div class="footer-copy">
+        &copy; 2026 Abel Sánchez Ramos. Diseñado con estándares web limpios (HTML5/CSS3/JS) para GitHub Pages.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
