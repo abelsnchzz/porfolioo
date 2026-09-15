@@ -5,44 +5,881 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Abel Sánchez Ramos | SysAdmin &amp; Cybersecurity</title>
   
-  <!-- Meta Tags Primarias -->
   <meta name="title" content="Abel Sánchez Ramos | SysAdmin &amp; Cybersecurity">
   <meta name="description" content="Portfolio profesional de Abel Sánchez Ramos, Administrador de Sistemas y Redes Junior especializado en Ciberseguridad, infraestructura IT, Linux, Windows, Active Directory y virtualización.">
   <meta name="author" content="Abel Sánchez Ramos">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://abelsanchez-it.github.io/">
 
-  <!-- Open Graph / Facebook / LinkedIn -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://abelsanchez-it.github.io/">
-  <meta property="og:title" content="Abel Sánchez Ramos | SysAdmin &amp; Cybersecurity">
-  <meta property="og:description" content="Portfolio profesional de Abel Sánchez Ramos, Administrador de Sistemas y Redes Junior especializado en Ciberseguridad, infraestructura IT y administración de identidades.">
-  <meta property="og:image" content="https://abelsanchez-it.github.io/assets/img/favicon.svg">
+  <style>
+    /* --- Tokens de color y variables --- */
+    :root {
+      --bg-primary: #090d16;
+      --bg-surface: #0f172a;
+      --bg-surface-elevated: #1e293b;
+      --bg-surface-subtle: #162032;
+      --border-subtle: #1e293b;
+      --border-medium: #334155;
+      --border-focus: #38bdf8;
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --accent-primary: #0284c7;
+      --accent-primary-hover: #0369a1;
+      --accent-glow: rgba(56, 189, 248, 0.15);
+      --accent-cyan: #38bdf8;
+      --status-online: #10b981;
+      --status-lab: #f59e0b;
+      --status-alert: #ef4444;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-mono: "SF Mono", Consolas, "JetBrains Mono", monospace;
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --radius-full: 9999px;
+      --container-max: 1180px;
+      --nav-height: 70px;
+      --transition-fast: 0.15s ease;
+      --transition-normal: 0.25s ease;
+    }
 
-  <!-- Twitter / X -->
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:url" content="https://abelsanchez-it.github.io/">
-  <meta name="twitter:title" content="Abel Sánchez Ramos | SysAdmin &amp; Cybersecurity">
-  <meta name="twitter:description" content="Portfolio profesional de Abel Sánchez Ramos. Administrador de Sistemas Junior especializado en Ciberseguridad.">
-  <meta name="twitter:image" content="https://abelsanchez-it.github.io/assets/img/favicon.svg">
+    [data-theme="light"] {
+      --bg-primary: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-surface-elevated: #f1f5f9;
+      --bg-surface-subtle: #f8fafc;
+      --border-subtle: #e2e8f0;
+      --border-medium: #cbd5e1;
+      --border-focus: #0284c7;
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #64748b;
+      --accent-primary: #0284c7;
+      --accent-primary-hover: #0369a1;
+      --accent-glow: rgba(2, 132, 199, 0.1);
+      --accent-cyan: #0284c7;
+    }
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+    /* --- Resets y bases --- */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="assets/css/style.css">
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+      scroll-padding-top: calc(var(--nav-height) + 20px);
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      transition: background-color var(--transition-normal), color var(--transition-normal);
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--container-max);
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+
+    h1, h2, h3, h4 {
+      color: var(--text-primary);
+      line-height: 1.25;
+      font-weight: 700;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      color: var(--text-secondary);
+    }
+    p:last-child { margin-bottom: 0; }
+
+    a {
+      color: var(--accent-cyan);
+      text-decoration: none;
+      transition: color var(--transition-fast);
+    }
+    a:hover { text-decoration: underline; }
+
+    .font-mono { font-family: var(--font-mono); }
+
+    /* --- Barra de navegación --- */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: var(--nav-height);
+      background-color: rgba(9, 13, 22, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-subtle);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+    }
+    [data-theme="light"] .navbar {
+      background-color: rgba(255, 255, 255, 0.92);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--text-primary);
+      text-decoration: none;
+    }
+    .nav-brand:hover { text-decoration: none; }
+
+    .nav-brand-status {
+      width: 8px;
+      height: 8px;
+      border-radius: var(--radius-full);
+      background-color: var(--status-online);
+      box-shadow: 0 0 8px var(--status-online);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      gap: 1.5rem;
+    }
+
+    .nav-link {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: var(--accent-cyan);
+      text-decoration: none;
+    }
+
+    .nav-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .btn-control {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      padding: 0.4rem 0.65rem;
+      border-radius: var(--radius-md);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .btn-control:hover {
+      border-color: var(--border-medium);
+      background: var(--bg-surface-elevated);
+    }
+
+    .btn-mobile-toggle {
+      display: none;
+      background: transparent;
+      border: none;
+      color: var(--text-primary);
+      cursor: pointer;
+      font-size: 1.25rem;
+      padding: 0.5rem;
+    }
+
+    /* --- Botones --- */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.4rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      text-decoration: none !important;
+    }
+    .btn-primary {
+      background-color: var(--accent-primary);
+      color: #ffffff;
+      border: 1px solid var(--accent-primary);
+    }
+    .btn-primary:hover {
+      background-color: var(--accent-primary-hover);
+      box-shadow: 0 4px 14px var(--accent-glow);
+    }
+    .btn-secondary {
+      background-color: var(--bg-surface);
+      color: var(--text-primary);
+      border: 1px solid var(--border-medium);
+    }
+    .btn-secondary:hover {
+      background-color: var(--bg-surface-elevated);
+      border-color: var(--accent-cyan);
+    }
+    .btn-ghost {
+      background-color: transparent;
+      color: var(--text-secondary);
+      border: 1px solid var(--border-subtle);
+    }
+    .btn-ghost:hover {
+      color: var(--text-primary);
+      border-color: var(--border-medium);
+    }
+
+    /* --- Hero Section --- */
+    .hero-section {
+      padding: calc(var(--nav-height) + 4rem) 0 5rem;
+      background: radial-gradient(circle at 80% 20%, var(--accent-glow), transparent 45%);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    .hero-badge-container {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.85rem;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-full);
+      margin-bottom: 1.5rem;
+    }
+    .hero-badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: var(--radius-full);
+      background-color: var(--status-online);
+    }
+    .hero-badge-text {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      letter-spacing: 0.5px;
+    }
+    .hero-title {
+      font-size: 2.75rem;
+      line-height: 1.15;
+      margin-bottom: 0.75rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+    .hero-role {
+      font-size: 1.35rem;
+      font-family: var(--font-mono);
+      color: var(--accent-cyan);
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+    .hero-lead {
+      font-size: 1.1rem;
+      line-height: 1.65;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+      max-width: 580px;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+    .hero-metrics {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border-subtle);
+    }
+    .metric-item { display: flex; flex-direction: column; }
+    .metric-value {
+      font-family: var(--font-mono);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    .metric-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* --- Panel de Infraestructura (Hero) --- */
+    .infra-panel {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .infra-panel-header {
+      background-color: var(--bg-surface-elevated);
+      padding: 0.85rem 1.25rem;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .infra-header-title {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    .infra-indicator-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: var(--radius-full);
+      background-color: var(--status-online);
+      box-shadow: 0 0 6px var(--status-online);
+    }
+    .infra-badge {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--status-online);
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      padding: 0.2rem 0.5rem;
+      border-radius: var(--radius-sm);
+    }
+    .infra-panel-body {
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+    .infra-service-card {
+      background-color: var(--bg-surface-subtle);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 0.85rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .infra-service-card:hover { border-color: var(--accent-cyan); }
+    .infra-service-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .infra-service-name {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    .service-tag {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      padding: 0.15rem 0.45rem;
+      border-radius: var(--radius-sm);
+    }
+    .tag-verified {
+      background: rgba(56, 189, 248, 0.1);
+      color: var(--accent-cyan);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+    }
+    .tag-lab {
+      background: rgba(245, 158, 11, 0.1);
+      color: var(--status-lab);
+      border: 1px solid rgba(245, 158, 11, 0.25);
+    }
+    .tag-focus {
+      background: rgba(16, 185, 129, 0.1);
+      color: var(--status-online);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+    }
+    .infra-service-desc {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+    .infra-panel-footer {
+      padding: 0.65rem 1.25rem;
+      background-color: var(--bg-surface-subtle);
+      border-top: 1px solid var(--border-subtle);
+    }
+    .infra-footer-meta { font-size: 0.72rem; color: var(--text-muted); }
+
+    /* --- Secciones Globales --- */
+    .section {
+      padding: 5.5rem 0;
+      border-top: 1px solid var(--border-subtle);
+    }
+    .section-header { margin-bottom: 3.5rem; }
+    .section-tag {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--accent-cyan);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: inline-block;
+      margin-bottom: 0.5rem;
+    }
+    .section-title { font-size: 2rem; margin-bottom: 0.75rem; }
+    .section-subtitle { font-size: 1rem; color: var(--text-secondary); max-width: 650px; }
+
+    /* --- Sobre Mí --- */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 3.5rem;
+      align-items: start;
+    }
+    .about-callout {
+      background-color: var(--bg-surface);
+      border-left: 3px solid var(--accent-cyan);
+      padding: 1rem 1.25rem;
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      margin: 1.5rem 0;
+      font-style: italic;
+    }
+    .profile-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+    }
+    .profile-card-title {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      font-family: var(--font-mono);
+    }
+    .profile-details-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .profile-detail-item {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 0.5rem;
+    }
+    .profile-detail-item:last-child { border-bottom: none; }
+
+    /* --- Timeline Experiencia --- */
+    .timeline {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 20px;
+      width: 2px;
+      background-color: var(--border-subtle);
+    }
+    .timeline-item {
+      position: relative;
+      padding-left: 60px;
+      margin-bottom: 3.5rem;
+    }
+    .timeline-item:last-child { margin-bottom: 0; }
+    .timeline-marker {
+      position: absolute;
+      left: 12px;
+      top: 6px;
+      width: 18px;
+      height: 18px;
+      border-radius: var(--radius-full);
+      background-color: var(--bg-primary);
+      border: 3px solid var(--accent-cyan);
+      z-index: 2;
+    }
+    .timeline-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+    }
+    .timeline-header {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .timeline-role { font-size: 1.2rem; font-weight: 700; }
+    .timeline-company { font-size: 1rem; color: var(--accent-cyan); font-weight: 600; }
+    .timeline-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+    }
+    .timeline-badge {
+      background-color: var(--bg-surface-elevated);
+      padding: 0.2rem 0.6rem;
+      border-radius: var(--radius-sm);
+    }
+    .timeline-responsibilities {
+      list-style: none;
+      margin-bottom: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .timeline-responsibilities li {
+      position: relative;
+      padding-left: 1.25rem;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+    }
+    .timeline-responsibilities li::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: var(--accent-cyan);
+    }
+    .tech-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .tech-tag {
+      background-color: var(--bg-surface-elevated);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: var(--radius-sm);
+    }
+
+    /* --- Stack --- */
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+    .stack-category-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .stack-category-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 0.75rem;
+    }
+    .stack-items-list { display: flex; flex-direction: column; gap: 1rem; }
+    .stack-item { display: flex; flex-direction: column; gap: 0.2rem; }
+    .stack-item-top { display: flex; justify-content: space-between; }
+    .stack-item-name { font-family: var(--font-mono); font-weight: 600; font-size: 0.9rem; }
+    .stack-item-scope { font-size: 0.75rem; color: var(--text-muted); }
+    .stack-item-desc { font-size: 0.85rem; color: var(--text-secondary); }
+
+    /* --- Ciberseguridad --- */
+    .security-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .security-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      position: relative;
+    }
+    .security-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background-color: var(--accent-cyan);
+    }
+    .security-card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+    .security-card-title { font-size: 1.1rem; }
+    .security-card-desc { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem; }
+    .security-card-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: var(--radius-full);
+      background-color: var(--status-lab);
+    }
+
+    /* --- Proyectos --- */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1.75rem;
+    }
+    .project-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+    }
+    .project-status-bar {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+    .project-category {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent-cyan);
+      text-transform: uppercase;
+    }
+    .badge-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: var(--radius-sm);
+      background: var(--bg-surface-elevated);
+      color: var(--status-lab);
+    }
+    .project-title { font-size: 1.25rem; margin-bottom: 0.75rem; }
+    .project-description { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1.25rem; flex-grow: 1; }
+    .project-architecture {
+      background-color: var(--bg-surface-subtle);
+      border: 1px dashed var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+    .project-architecture-label { font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; }
+    .project-architecture-flow { font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-cyan); }
+    .project-actions {
+      display: flex;
+      gap: 0.75rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-subtle);
+    }
+    .btn-project { font-size: 0.8rem; padding: 0.4rem 0.8rem; font-family: var(--font-mono); }
+
+    /* --- Homelab --- */
+    .homelab-container {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+    }
+    .homelab-notice {
+      background-color: var(--bg-surface-elevated);
+      border-left: 3px solid var(--status-lab);
+      padding: 0.85rem 1.25rem;
+      margin-bottom: 2rem;
+      font-size: 0.85rem;
+    }
+    .topology-container { display: flex; flex-direction: column; gap: 1.5rem; }
+    .topology-level { display: flex; justify-content: center; }
+    .topology-node {
+      background-color: var(--bg-surface-subtle);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.5rem;
+      text-align: center;
+      width: 100%;
+      max-width: 480px;
+    }
+    .topology-connector { display: flex; justify-content: center; color: var(--text-muted); font-family: var(--font-mono); }
+    .topology-grid-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      width: 100%;
+    }
+
+    /* --- Formación --- */
+    .education-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .education-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+    }
+    .education-card.featured { border-color: var(--accent-cyan); }
+    .education-period { font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-cyan); margin-bottom: 0.5rem; }
+    .education-title { font-size: 1.15rem; margin-bottom: 0.5rem; }
+    .education-institution { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.75rem; }
+    .education-desc { font-size: 0.85rem; color: var(--text-muted); }
+
+    /* --- Contacto --- */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .contact-info-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .contact-item { display: flex; align-items: center; gap: 1rem; }
+    .contact-icon-box {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-md);
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-cyan);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .contact-form {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+    .form-label { font-size: 0.85rem; font-weight: 500; color: var(--text-primary); }
+    .form-input, .form-textarea {
+      background-color: var(--bg-surface-subtle);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 0.75rem 1rem;
+      color: var(--text-primary);
+      font-size: 0.9rem;
+    }
+    .form-input:focus, .form-textarea:focus { outline: none; border-color: var(--accent-cyan); }
+    .form-textarea { resize: vertical; min-height: 100px; }
+
+    /* --- Footer --- */
+    .footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 3rem 0;
+      background-color: var(--bg-primary);
+    }
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    .footer-links { display: flex; gap: 1.5rem; list-style: none; }
+    .footer-copy {
+      width: 100%;
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      padding-top: 2rem;
+      margin-top: 2rem;
+      border-top: 1px solid var(--border-subtle);
+      font-family: var(--font-mono);
+    }
+
+    /* --- Responsive --- */
+    @media (max-width: 992px) {
+      .hero-grid, .about-grid, .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+      .hero-title { font-size: 2.25rem; }
+    }
+    @media (max-width: 768px) {
+      .nav-links {
+        position: fixed;
+        top: var(--nav-height);
+        left: 0;
+        width: 100%;
+        background-color: var(--bg-surface);
+        border-bottom: 1px solid var(--border-subtle);
+        flex-direction: column;
+        padding: 1.5rem;
+        gap: 1rem;
+        transform: translateY(-150%);
+        transition: transform var(--transition-normal);
+      }
+      .nav-links.open { transform: translateY(0); }
+      .btn-mobile-toggle { display: block; }
+      .hero-metrics { flex-wrap: wrap; gap: 1.25rem; }
+      .timeline::before { left: 10px; }
+      .timeline-marker { left: 2px; }
+      .timeline-item { padding-left: 35px; }
+    }
+  </style>
 </head>
 <body>
 
   <!-- ================= BARRA DE NAVEGACIÓN ================= -->
   <header class="navbar" role="banner">
     <div class="container nav-container">
-      <a href="#hero" class="nav-brand" aria-label="Inicio - Abel Sánchez Ramos">
+      <a href="#hero" class="nav-brand" aria-label="Inicio">
         <span class="nav-brand-status" aria-hidden="true"></span>
-        <span><span class="nav-brand-prefix">~/</span>abel-sanchez</span>
+        <span><span class="font-mono" style="color:var(--accent-cyan)">~/</span>abel-sanchez</span>
       </a>
 
-      <nav role="navigation" aria-label="Navegación principal">
+      <nav role="navigation" aria-label="Principal">
         <ul class="nav-links">
           <li><a href="#about" class="nav-link" data-i18n="nav.about">Sobre mí</a></li>
           <li><a href="#experience" class="nav-link" data-i18n="nav.experience">Experiencia</a></li>
@@ -57,7 +894,7 @@
 
       <div class="nav-controls">
         <button id="lang-toggle" class="btn-control" aria-label="Cambiar idioma">
-          <span class="btn-icon" aria-hidden="true">🌐</span>
+          <span aria-hidden="true">🌐</span>
           <span class="btn-text">EN</span>
         </button>
         <button id="theme-toggle" class="btn-control" aria-label="Cambiar tema">
@@ -67,9 +904,7 @@
         <a href="assets/cv/CV-Abel-Sanchez-Ramos.pdf" download class="btn btn-secondary" style="padding: 0.4rem 0.8rem; font-size: 0.75rem;" data-i18n="nav.cv">
           Descargar CV
         </a>
-        <button class="btn-mobile-toggle" aria-label="Abrir menú móvil" aria-expanded="false">
-          ☰
-        </button>
+        <button class="btn-mobile-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
       </div>
     </div>
   </header>
@@ -111,7 +946,7 @@
           </div>
         </div>
 
-        <!-- Panel de Infraestructura y Estado de Servicios -->
+        <!-- Panel de Infraestructura Corporativa -->
         <div class="hero-panel-wrapper">
           <div class="infra-panel">
             <div class="infra-panel-header">
@@ -123,7 +958,6 @@
             </div>
 
             <div class="infra-panel-body">
-              <!-- Bloque 1: Identidad & Nube -->
               <div class="infra-service-card">
                 <div class="infra-service-top">
                   <span class="infra-service-name" data-i18n="infra.serv_identity">Identidad &amp; Directorio</span>
@@ -132,7 +966,6 @@
                 <div class="infra-service-desc">Active Directory · Azure AD · Microsoft 365</div>
               </div>
 
-              <!-- Bloque 2: Sistemas & Hipervisores -->
               <div class="infra-service-card">
                 <div class="infra-service-top">
                   <span class="infra-service-name" data-i18n="infra.serv_virtualization">Virtualización &amp; Servidores</span>
@@ -141,7 +974,6 @@
                 <div class="infra-service-desc">Proxmox VE · VMware · Windows Server · Linux</div>
               </div>
 
-              <!-- Bloque 3: Seguridad Defensiva -->
               <div class="infra-service-card">
                 <div class="infra-service-top">
                   <span class="infra-service-name" data-i18n="infra.serv_security">Seguridad &amp; Continuidad</span>
@@ -150,7 +982,6 @@
                 <div class="infra-service-desc">Hardening · Control de Accesos · Copias de Seguridad</div>
               </div>
 
-              <!-- Bloque 4: Redes & Soporte -->
               <div class="infra-service-card">
                 <div class="infra-service-top">
                   <span class="infra-service-name" data-i18n="infra.serv_support">Redes &amp; Soporte Técnico</span>
@@ -185,7 +1016,7 @@
               Cuento con experiencia práctica en entornos reales gracias a mis periodos en Geotexan S.A. (administración de Active Directory, Azure AD, soporte e infraestructura IT) y en el Hospital Infanta Elena (mantenimiento de red, hardware y soporte crítico a personal sanitario y administrativo).
             </p>
             <div class="about-callout">
-              <p class="about-callout-text" data-i18n="about.callout">
+              <p data-i18n="about.callout">
                 "Mi meta profesional es integrarme en un equipo de sistemas o ciberseguridad donde pueda aplicar mis conocimientos en resolución de incidencias, control de accesos y administración segura de infraestructura."
               </p>
             </div>
@@ -196,16 +1027,16 @@
               <h3 class="profile-card-title" data-i18n="about.sidebar_title">Ficha Técnica</h3>
               <ul class="profile-details-list">
                 <li class="profile-detail-item">
-                  <span class="detail-label" data-i18n="about.label_residence">Residencia</span>
-                  <span class="detail-value" data-i18n="about.val_residence">Huelva, España</span>
+                  <span style="color:var(--text-muted)" data-i18n="about.label_residence">Residencia</span>
+                  <span style="font-weight:500" data-i18n="about.val_residence">Huelva, España</span>
                 </li>
                 <li class="profile-detail-item">
-                  <span class="detail-label" data-i18n="about.label_langs">Idiomas</span>
-                  <span class="detail-value" data-i18n="about.val_langs">Español (Nativo) · Inglés (B1)</span>
+                  <span style="color:var(--text-muted)" data-i18n="about.label_langs">Idiomas</span>
+                  <span style="font-weight:500" data-i18n="about.val_langs">Español (Nativo) · Inglés (B1)</span>
                 </li>
                 <li class="profile-detail-item">
-                  <span class="detail-label" data-i18n="about.label_identity">Especialidad</span>
-                  <span class="detail-value" data-i18n="about.val_identity">Sistemas, Redes &amp; Seguridad</span>
+                  <span style="color:var(--text-muted)" data-i18n="about.label_identity">Especialidad</span>
+                  <span style="font-weight:500" data-i18n="about.val_identity">Sistemas, Redes &amp; Seguridad</span>
                 </li>
               </ul>
             </div>
@@ -224,7 +1055,6 @@
         </div>
 
         <div class="timeline">
-          <!-- Experiencia 1: Geotexan S.A. -->
           <article class="timeline-item">
             <div class="timeline-marker"></div>
             <div class="timeline-card">
@@ -259,7 +1089,6 @@
             </div>
           </article>
 
-          <!-- Experiencia 2: Hospital Infanta Elena -->
           <article class="timeline-item">
             <div class="timeline-marker"></div>
             <div class="timeline-card">
@@ -287,7 +1116,6 @@
                 <span class="tech-tag">Hardware Diagnostics</span>
                 <span class="tech-tag">Software Deployment</span>
                 <span class="tech-tag">IT Support</span>
-                <span class="tech-tag">Continuidad de Servicio</span>
               </div>
             </div>
           </article>
@@ -295,21 +1123,20 @@
       </div>
     </section>
 
-    <!-- ================= STACK TECNOLÓGICO ================= -->
+    <!-- ================= STACK ================= -->
     <section id="stack" class="section">
       <div class="container">
         <div class="section-header">
           <span class="section-tag" data-i18n="stack.tag">// 03. HABILIDADES TÉCNICAS</span>
           <h2 class="section-title" data-i18n="stack.title">Stack Tecnológico</h2>
-          <p class="section-subtitle" data-i18n="stack.subtitle">Tecnologías y herramientas respaldadas directamente por mi formación y experiencia práctica.</p>
+          <p class="section-subtitle" data-i18n="stack.subtitle">Tecnologías respaldadas por mi formación y experiencia práctica.</p>
         </div>
 
         <div class="stack-grid">
-          <!-- Categoría 1: Systems & Networks -->
           <div class="stack-category-card">
             <div class="stack-category-header">
-              <span class="stack-category-icon font-mono">[01]</span>
-              <h3 class="stack-category-title" data-i18n="stack.cat_systems">Sistemas Operativos &amp; Redes</h3>
+              <span class="font-mono" style="color:var(--accent-cyan)">[01]</span>
+              <h3 data-i18n="stack.cat_systems">Sistemas Operativos &amp; Redes</h3>
             </div>
             <div class="stack-items-list">
               <div class="stack-item">
@@ -336,11 +1163,10 @@
             </div>
           </div>
 
-          <!-- Categoría 2: Identity & Cloud -->
           <div class="stack-category-card">
             <div class="stack-category-header">
-              <span class="stack-category-icon font-mono">[02]</span>
-              <h3 class="stack-category-title" data-i18n="stack.cat_identity">Identidad &amp; Ecosistema Microsoft</h3>
+              <span class="font-mono" style="color:var(--accent-cyan)">[02]</span>
+              <h3 data-i18n="stack.cat_identity">Identidad &amp; Ecosistema Microsoft</h3>
             </div>
             <div class="stack-items-list">
               <div class="stack-item">
@@ -360,18 +1186,17 @@
               <div class="stack-item">
                 <div class="stack-item-top">
                   <span class="stack-item-name">Microsoft 365 Admin</span>
-                  <span class="stack-item-scope">SaaS Administration</span>
+                  <span class="stack-item-scope">SaaS</span>
                 </div>
                 <p class="stack-item-desc" data-i18n="stack.m365_desc">Gobierno de buzones, licencias y centro de administración.</p>
               </div>
             </div>
           </div>
 
-          <!-- Categoría 3: Virtualization -->
           <div class="stack-category-card">
             <div class="stack-category-header">
-              <span class="stack-category-icon font-mono">[03]</span>
-              <h3 class="stack-category-title" data-i18n="stack.cat_virtualization">Virtualización &amp; Hipervisores</h3>
+              <span class="font-mono" style="color:var(--accent-cyan)">[03]</span>
+              <h3 data-i18n="stack.cat_virtualization">Virtualización &amp; Hipervisores</h3>
             </div>
             <div class="stack-items-list">
               <div class="stack-item">
@@ -398,11 +1223,10 @@
             </div>
           </div>
 
-          <!-- Categoría 4: Support & Remote Tools -->
           <div class="stack-category-card">
             <div class="stack-category-header">
-              <span class="stack-category-icon font-mono">[04]</span>
-              <h3 class="stack-category-title" data-i18n="stack.cat_support">Soporte Técnico &amp; Acceso Remoto</h3>
+              <span class="font-mono" style="color:var(--accent-cyan)">[04]</span>
+              <h3 data-i18n="stack.cat_support">Soporte Técnico &amp; Acceso Remoto</h3>
             </div>
             <div class="stack-items-list">
               <div class="stack-item">
@@ -438,62 +1262,54 @@
         <div class="section-header">
           <span class="section-tag" data-i18n="sec.tag">// 04. ESPECIALIZACIÓN DEFENSIVA</span>
           <h2 class="section-title" data-i18n="sec.title">Ciberseguridad</h2>
-          <p class="section-subtitle" data-i18n="sec.subtitle">Competencias adquiridas durante el Curso de Especialización y aplicadas en proyectos de sistemas.</p>
+          <p class="section-subtitle" data-i18n="sec.subtitle">Competencias adquiridas durante el Curso de Especialización.</p>
         </div>
 
         <div class="security-grid">
           <div class="security-card">
             <div class="security-card-header">
-              <span class="security-card-icon font-mono">01</span>
+              <span class="font-mono" style="color:var(--accent-cyan)">01</span>
               <h3 class="security-card-title" data-i18n="sec.hardening_title">Hardening de Sistemas</h3>
             </div>
-            <p class="security-card-desc" data-i18n="sec.hardening_desc">
-              Cierre de puertos y servicios innecesarios, minimización de superficie de ataque y aplicación de directivas seguras.
-            </p>
+            <p class="security-card-desc" data-i18n="sec.hardening_desc">Cierre de puertos y servicios innecesarios, minimización de superficie de ataque y aplicación de directivas seguras.</p>
             <div class="security-card-status">
-              <span class="status-dot dot-in-dev"></span>
+              <span class="status-dot"></span>
               <span>Área de Especialización</span>
             </div>
           </div>
 
           <div class="security-card">
             <div class="security-card-header">
-              <span class="security-card-icon font-mono">02</span>
+              <span class="font-mono" style="color:var(--accent-cyan)">02</span>
               <h3 class="security-card-title" data-i18n="sec.access_title">Control de Accesos &amp; Permisos</h3>
             </div>
-            <p class="security-card-desc" data-i18n="sec.access_desc">
-              Implementación del principio de mínimo privilegio en Active Directory y sistemas locales.
-            </p>
+            <p class="security-card-desc" data-i18n="sec.access_desc">Implementación del principio de mínimo privilegio en Active Directory y sistemas locales.</p>
             <div class="security-card-status">
-              <span class="status-dot dot-in-dev"></span>
+              <span class="status-dot"></span>
               <span>Experiencia Práctica</span>
             </div>
           </div>
 
           <div class="security-card">
             <div class="security-card-header">
-              <span class="security-card-icon font-mono">03</span>
+              <span class="font-mono" style="color:var(--accent-cyan)">03</span>
               <h3 class="security-card-title" data-i18n="sec.vuln_title">Gestión de Vulnerabilidades</h3>
             </div>
-            <p class="security-card-desc" data-i18n="sec.vuln_desc">
-              Identificación de brechas conocidas, monitorización de avisos de seguridad y aplicación de parches preventivos.
-            </p>
+            <p class="security-card-desc" data-i18n="sec.vuln_desc">Identificación de brechas conocidas, monitorización de avisos de seguridad y parches preventivos.</p>
             <div class="security-card-status">
-              <span class="status-dot dot-in-dev"></span>
+              <span class="status-dot"></span>
               <span>Formación Técnica</span>
             </div>
           </div>
 
           <div class="security-card">
             <div class="security-card-header">
-              <span class="security-card-icon font-mono">04</span>
+              <span class="font-mono" style="color:var(--accent-cyan)">04</span>
               <h3 class="security-card-title" data-i18n="sec.backup_title">Copias de Seguridad (Backups)</h3>
             </div>
-            <p class="security-card-desc" data-i18n="sec.backup_desc">
-              Estrategias de respaldo para mitigar pérdidas por fallos físicos, lógicos o incidentes de ransomware.
-            </p>
+            <p class="security-card-desc" data-i18n="sec.backup_desc">Estrategias de respaldo para mitigar pérdidas por fallos físicos, lógicos o incidentes de ransomware.</p>
             <div class="security-card-status">
-              <span class="status-dot dot-in-dev"></span>
+              <span class="status-dot"></span>
               <span>Buenas Prácticas</span>
             </div>
           </div>
@@ -507,22 +1323,21 @@
         <div class="section-header">
           <span class="section-tag" data-i18n="proj.tag">// 05. DEMOSTRACIÓN TÉCNICA</span>
           <h2 class="section-title" data-i18n="proj.title">Laboratorios &amp; Proyectos</h2>
-          <p class="section-subtitle" data-i18n="proj.subtitle">Casos prácticos planificados y en desarrollo para evidenciar metodología y documentación técnica.</p>
+          <p class="section-subtitle" data-i18n="proj.subtitle">Casos prácticos planificados y en desarrollo para evidenciar metodología técnica.</p>
         </div>
 
         <div class="projects-grid">
-          <!-- Proyecto 1: Active Directory Lab -->
           <article class="project-card">
             <div class="project-status-bar">
               <span class="project-category">Identity &amp; Systems</span>
-              <span class="badge-status badge-status-in-dev">
-                <span class="status-dot dot-in-dev"></span>
+              <span class="badge-status">
+                <span class="status-dot"></span>
                 <span data-i18n="proj.status_dev">En desarrollo</span>
               </span>
             </div>
             <h3 class="project-title" data-i18n="proj.ad_title">Laboratorio Active Directory &amp; GPO</h3>
             <p class="project-description" data-i18n="proj.ad_desc">
-              Despliegue de un bosque local de dominio para simular una red empresarial: creación de unidades organizativas, control de accesos e implantación de políticas de contraseñas.
+              Despliegue de un bosque local de dominio: unidades organizativas, control de accesos e implantación de directivas.
             </p>
             <div class="project-architecture">
               <div class="project-architecture-label">Arquitectura</div>
@@ -532,7 +1347,6 @@
               <span class="tech-tag">Windows Server</span>
               <span class="tech-tag">Active Directory</span>
               <span class="tech-tag">GPO</span>
-              <span class="tech-tag">RBAC</span>
             </div>
             <div class="project-actions">
               <a href="https://github.com/abelsanchez-it/active-directory-lab" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-project" data-i18n="proj.cta_repo">Repositorio</a>
@@ -540,18 +1354,17 @@
             </div>
           </article>
 
-          <!-- Proyecto 2: Linux Server Hardening -->
           <article class="project-card">
             <div class="project-status-bar">
               <span class="project-category">Security &amp; Linux</span>
-              <span class="badge-status badge-status-in-dev">
-                <span class="status-dot dot-in-dev"></span>
+              <span class="badge-status">
+                <span class="status-dot"></span>
                 <span data-i18n="proj.status_dev">En desarrollo</span>
               </span>
             </div>
             <h3 class="project-title" data-i18n="proj.linux_title">Hardening de Servidor Linux</h3>
             <p class="project-description" data-i18n="proj.linux_desc">
-              Configuración segura de servidor Debian/Ubuntu con autenticación exclusivamente por clave SSH, reglas de cortafuegos y auditoría de servicios.
+              Configuración segura de servidor Debian/Ubuntu con autenticación exclusivamente por clave SSH, reglas UFW y auditoría.
             </p>
             <div class="project-architecture">
               <div class="project-architecture-label">Arquitectura</div>
@@ -561,7 +1374,6 @@
               <span class="tech-tag">Linux</span>
               <span class="tech-tag">Hardening</span>
               <span class="tech-tag">SSH</span>
-              <span class="tech-tag">UFW</span>
             </div>
             <div class="project-actions">
               <a href="https://github.com/abelsanchez-it/linux-server" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-project" data-i18n="proj.cta_repo">Repositorio</a>
@@ -569,18 +1381,17 @@
             </div>
           </article>
 
-          <!-- Proyecto 3: Proxmox Homelab -->
           <article class="project-card">
             <div class="project-status-bar">
               <span class="project-category">Virtualization</span>
-              <span class="badge-status badge-status-planned">
-                <span class="status-dot dot-planned"></span>
+              <span class="badge-status" style="color:var(--text-muted)">
+                <span class="status-dot" style="background-color:var(--text-muted)"></span>
                 <span data-i18n="proj.status_planned">Próximamente</span>
               </span>
             </div>
             <h3 class="project-title" data-i18n="proj.proxmox_title">Infraestructura Homelab en Proxmox</h3>
             <p class="project-description" data-i18n="proj.proxmox_desc">
-              Segmentación de redes virtuales para separar entornos de pruebas de sistemas y servicios esenciales con políticas de snapshots periódicas.
+              Segmentación de redes virtuales para entornos de pruebas de sistemas y servicios esenciales con snapshots periódicos.
             </p>
             <div class="project-architecture">
               <div class="project-architecture-label">Arquitectura</div>
@@ -590,7 +1401,6 @@
               <span class="tech-tag">Proxmox VE</span>
               <span class="tech-tag">VLAN</span>
               <span class="tech-tag">Snapshots</span>
-              <span class="tech-tag">Networking</span>
             </div>
             <div class="project-actions">
               <a href="https://github.com/abelsanchez-it/homelab" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-project" data-i18n="proj.cta_repo">Repositorio</a>
@@ -607,22 +1417,20 @@
         <div class="section-header">
           <span class="section-tag" data-i18n="lab.tag">// 06. ARQUITECTURA PROPUESTA</span>
           <h2 class="section-title" data-i18n="lab.title">Homelab / IT Lab</h2>
-          <p class="section-subtitle" data-i18n="lab.subtitle">Diseño de la infraestructura de laboratorio personal utilizada para pruebas de virtualización y seguridad.</p>
+          <p class="section-subtitle" data-i18n="lab.subtitle">Diseño de la infraestructura de laboratorio para pruebas de virtualización y seguridad.</p>
         </div>
 
         <div class="homelab-container">
           <div class="homelab-notice">
             <span class="font-mono">ℹ</span>
-            <span class="homelab-notice-text" data-i18n="lab.notice">
-              Nota de transparencia técnica: Arquitectura en constante evolución, utilizada como banco de pruebas experimental y formación continua.
-            </span>
+            <span data-i18n="lab.notice">Nota de transparencia técnica: Banco de pruebas experimental para formación continua.</span>
           </div>
 
           <div class="topology-container">
             <div class="topology-level">
               <div class="topology-node">
-                <div class="topology-node-title" data-i18n="lab.layer1_title">PUNTO DE ACCESO / ENLACE EXTERNO</div>
-                <div class="topology-node-desc" data-i18n="lab.layer1_desc">Conexión a red con filtrado perimetral y aislamiento</div>
+                <div style="font-weight:700; font-family:var(--font-mono)" data-i18n="lab.layer1_title">PUNTO DE ACCESO / ENLACE EXTERNO</div>
+                <div style="font-size:0.8rem; color:var(--text-secondary)" data-i18n="lab.layer1_desc">Conexión a red con filtrado perimetral y aislamiento</div>
               </div>
             </div>
 
@@ -630,8 +1438,8 @@
 
             <div class="topology-level">
               <div class="topology-node" style="border-color: var(--accent-cyan);">
-                <div class="topology-node-title" data-i18n="lab.layer2_title">HIPERVISOR PRINCIPAL (PROXMOX VE)</div>
-                <div class="topology-node-desc" data-i18n="lab.layer2_desc">Asignación de recursos virtualizados, gestión de almacenamiento y snapshots</div>
+                <div style="font-weight:700; font-family:var(--font-mono)" data-i18n="lab.layer2_title">HIPERVISOR PRINCIPAL (PROXMOX VE)</div>
+                <div style="font-size:0.8rem; color:var(--text-secondary)" data-i18n="lab.layer2_desc">Recursos virtualizados, almacenamiento y snapshots</div>
               </div>
             </div>
 
@@ -639,16 +1447,16 @@
 
             <div class="topology-grid-row">
               <div class="topology-node">
-                <div class="topology-node-title" data-i18n="lab.vm1_title">VM Domain Controller</div>
-                <div class="topology-node-desc" data-i18n="lab.vm1_desc">Pruebas de Active Directory y GPO</div>
+                <div style="font-weight:700; font-family:var(--font-mono)" data-i18n="lab.vm1_title">VM Domain Controller</div>
+                <div style="font-size:0.8rem; color:var(--text-secondary)" data-i18n="lab.vm1_desc">Pruebas de Active Directory y GPO</div>
               </div>
               <div class="topology-node">
-                <div class="topology-node-title" data-i18n="lab.vm2_title">VM Linux Services</div>
-                <div class="topology-node-desc" data-i18n="lab.vm2_desc">Servicios de soporte y administración</div>
+                <div style="font-weight:700; font-family:var(--font-mono)" data-i18n="lab.vm2_title">VM Linux Services</div>
+                <div style="font-size:0.8rem; color:var(--text-secondary)" data-i18n="lab.vm2_desc">Servicios de soporte y administración</div>
               </div>
               <div class="topology-node">
-                <div class="topology-node-title" data-i18n="lab.vm3_title">Clientes de Prueba</div>
-                <div class="topology-node-desc" data-i18n="lab.vm3_desc">Entornos aislados Windows / Linux</div>
+                <div style="font-weight:700; font-family:var(--font-mono)" data-i18n="lab.vm3_title">Clientes de Prueba</div>
+                <div style="font-size:0.8rem; color:var(--text-secondary)" data-i18n="lab.vm3_desc">Entornos aislados Windows / Linux</div>
               </div>
             </div>
           </div>
@@ -656,13 +1464,13 @@
       </div>
     </section>
 
-    <!-- ================= FORMACIÓN OFICIAL ================= -->
+    <!-- ================= FORMACIÓN ================= -->
     <section id="education" class="section">
       <div class="container">
         <div class="section-header">
           <span class="section-tag" data-i18n="edu.tag">// 07. ANTECEDENTES ACADÉMICOS</span>
           <h2 class="section-title" data-i18n="edu.title">Formación Oficial</h2>
-          <p class="section-subtitle" data-i18n="edu.subtitle">Trayectoria académica reglada en tecnologías de la información y ciberseguridad.</p>
+          <p class="section-subtitle" data-i18n="edu.subtitle">Trayectoria académica reglada en sistemas y ciberseguridad.</p>
         </div>
 
         <div class="education-grid">
@@ -670,27 +1478,21 @@
             <div class="education-period" data-i18n="edu.c1_period">2025 — 2026</div>
             <h3 class="education-title" data-i18n="edu.c1_title">Curso de Especialización en Ciberseguridad</h3>
             <p class="education-institution">Formación Profesional de Grado Superior</p>
-            <p class="education-desc" data-i18n="edu.c1_desc">
-              Formación técnica avanzada en hardening, análisis de incidentes, protección de redes y normativas de seguridad de la información.
-            </p>
+            <p class="education-desc" data-i18n="edu.c1_desc">Hardening, análisis de incidentes, protección de redes y normativas de seguridad.</p>
           </div>
 
           <div class="education-card">
             <div class="education-period" data-i18n="edu.c2_period">2023 — 2025</div>
             <h3 class="education-title" data-i18n="edu.c2_title">CFGS Administración de Sistemas Informáticos en Red (ASIR)</h3>
             <p class="education-institution">Ciclo Formativo de Grado Superior</p>
-            <p class="education-desc" data-i18n="edu.c2_desc">
-              Gestión avanzada de sistemas operativos de servidor, bases de datos, servicios de red, seguridad perimetral y virtualización.
-            </p>
+            <p class="education-desc" data-i18n="edu.c2_desc">Sistemas de servidor, bases de datos, redes, seguridad perimetral y virtualización.</p>
           </div>
 
           <div class="education-card">
             <div class="education-period" data-i18n="edu.c3_period">2021 — 2023</div>
             <h3 class="education-title" data-i18n="edu.c3_title">CFGM Sistemas Microinformáticos y Redes (SMR)</h3>
             <p class="education-institution">Ciclo Formativo de Grado Medio</p>
-            <p class="education-desc" data-i18n="edu.c3_desc">
-              Instalación de hardware, cableado estructurado de redes de datos, mantenimiento preventivo y configuración básica de software cliente.
-            </p>
+            <p class="education-desc" data-i18n="edu.c3_desc">Montaje de hardware, cableado estructurado, mantenimiento y configuración cliente.</p>
           </div>
         </div>
       </div>
@@ -711,29 +1513,29 @@
               <li class="contact-item">
                 <div class="contact-icon-box font-mono">@</div>
                 <div>
-                  <div class="contact-item-title" data-i18n="contact.email_label">Correo Electrónico</div>
-                  <a href="mailto:asannchez.2005@gmail.com" class="contact-item-value">asannchez.2005@gmail.com</a>
+                  <div style="font-size:0.8rem; color:var(--text-muted); font-family:var(--font-mono)" data-i18n="contact.email_label">Correo Electrónico</div>
+                  <a href="mailto:asannchez.2005@gmail.com" style="font-weight:500">asannchez.2005@gmail.com</a>
                 </div>
               </li>
               <li class="contact-item">
                 <div class="contact-icon-box font-mono">in</div>
                 <div>
-                  <div class="contact-item-title" data-i18n="contact.linkedin_label">Perfil Profesional</div>
-                  <a href="https://linkedin.com/in/abelsanchez-it" target="_blank" rel="noopener noreferrer" class="contact-item-value">linkedin.com/in/abelsanchez-it</a>
+                  <div style="font-size:0.8rem; color:var(--text-muted); font-family:var(--font-mono)" data-i18n="contact.linkedin_label">Perfil Profesional</div>
+                  <a href="https://linkedin.com/in/abelsanchez-it" target="_blank" rel="noopener noreferrer" style="font-weight:500">linkedin.com/in/abelsanchez-it</a>
                 </div>
               </li>
               <li class="contact-item">
                 <div class="contact-icon-box font-mono">&lt;&gt;</div>
                 <div>
-                  <div class="contact-item-title" data-i18n="contact.github_label">Repositorios de Código</div>
-                  <a href="https://github.com/abelsanchez-it" target="_blank" rel="noopener noreferrer" class="contact-item-value">github.com/abelsanchez-it</a>
+                  <div style="font-size:0.8rem; color:var(--text-muted); font-family:var(--font-mono)" data-i18n="contact.github_label">Repositorios de Código</div>
+                  <a href="https://github.com/abelsanchez-it" target="_blank" rel="noopener noreferrer" style="font-weight:500">github.com/abelsanchez-it</a>
                 </div>
               </li>
               <li class="contact-item">
                 <div class="contact-icon-box font-mono">LOC</div>
                 <div>
-                  <div class="contact-item-title" data-i18n="contact.location_label">Ubicación</div>
-                  <span class="contact-item-value" data-i18n="contact.location_val">Huelva, España (Disponible para remoto / híbrido / presencial)</span>
+                  <div style="font-size:0.8rem; color:var(--text-muted); font-family:var(--font-mono)" data-i18n="contact.location_label">Ubicación</div>
+                  <span style="font-weight:500" data-i18n="contact.location_val">Huelva, España (Disponible remoto / híbrido / presencial)</span>
                 </div>
               </li>
             </ul>
@@ -745,11 +1547,11 @@
               <input type="text" id="cf-name" class="form-input" required placeholder="Ej. Juan Pérez" data-i18n-ph="contact.form_name_ph">
             </div>
             <div class="form-group">
-              <label for="cf-email" class="form-label" data-i18n="contact.form_email">Correo corporativo / personal</label>
+              <label for="cf-email" class="form-label" data-i18n="contact.form_email">Correo de contacto</label>
               <input type="email" id="cf-email" class="form-input" required placeholder="juan.perez@empresa.com" data-i18n-ph="contact.form_email_ph">
             </div>
             <div class="form-group">
-              <label for="cf-message" class="form-label" data-i18n="contact.form_msg">Mensaje o propuesta</label>
+              <label for="cf-message" class="form-label" data-i18n="contact.form_msg">Mensaje</label>
               <textarea id="cf-message" class="form-textarea" required placeholder="Hola Abel, hemos visto tu perfil..." data-i18n-ph="contact.form_msg_ph"></textarea>
             </div>
             <button type="submit" class="btn btn-primary" data-i18n="contact.form_btn">Enviar consulta vía Mailto</button>
@@ -762,9 +1564,9 @@
   <!-- ================= FOOTER ================= -->
   <footer class="footer" role="contentinfo">
     <div class="container footer-content">
-      <div class="footer-brand">
-        <span class="footer-name">Abel Sánchez Ramos</span>
-        <span class="footer-location">Administrador de Sistemas Junior | Ciberseguridad — Huelva, España</span>
+      <div>
+        <div style="font-weight:700">Abel Sánchez Ramos</div>
+        <div style="font-size:0.85rem; color:var(--text-muted)">Administrador de Sistemas Junior | Ciberseguridad — Huelva, España</div>
       </div>
 
       <ul class="footer-links">
@@ -774,13 +1576,401 @@
       </ul>
 
       <div class="footer-copy">
-        &copy; 2026 Abel Sánchez Ramos. Diseñado con estándares web limpios (HTML5/CSS3/JS) para GitHub Pages.
+        &copy; 2026 Abel Sánchez Ramos. Diseñado para GitHub Pages.
       </div>
     </div>
   </footer>
 
-  <!-- Scripts -->
-  <script src="assets/js/i18n.js"></script>
-  <script src="assets/js/main.js"></script>
+  <!-- Lógica JavaScript integrada e i18n -->
+  <script>
+    const translations = {
+      es: {
+        "nav.about": "Sobre mí",
+        "nav.experience": "Experiencia",
+        "nav.stack": "Stack",
+        "nav.cybersecurity": "Ciberseguridad",
+        "nav.projects": "Proyectos",
+        "nav.homelab": "Homelab",
+        "nav.education": "Formación",
+        "nav.contact": "Contacto",
+        "nav.cv": "Descargar CV",
+        "hero.badge": "SISTEMAS IT & CIBERSEGURIDAD // EARLY CAREER",
+        "hero.title": "Abel Sánchez Ramos",
+        "hero.role": "Administrador de Sistemas Junior | Ciberseguridad",
+        "hero.lead": "Administrador de Sistemas orientado a infraestructura IT, soporte técnico avanzado, entornos Microsoft (Active Directory, Azure AD, M365) y especialización en ciberseguridad defensiva.",
+        "hero.cta_projects": "Ver proyectos técnicos",
+        "hero.cta_contact": "Contactar",
+        "hero.metric_exp": "Prácticas Profesionales",
+        "hero.metric_exp_val": "2 Empresas",
+        "hero.metric_edu": "Especialización",
+        "hero.metric_edu_val": "Ciberseguridad",
+        "hero.metric_location": "Ubicación",
+        "hero.metric_location_val": "Huelva, España",
+        "infra.panel_title": "PANEL DE CONTROL DE INFRAESTRUCTURA",
+        "infra.status_operational": "SISTEMA ACTIVO",
+        "infra.serv_identity": "Identidad & Directorio",
+        "infra.serv_virtualization": "Virtualización & Servidores",
+        "infra.serv_security": "Seguridad & Continuidad",
+        "infra.serv_support": "Redes & Soporte Técnico",
+        "infra.tag_prod": "PRODUCCIÓN",
+        "infra.tag_lab": "LABORATORIO",
+        "infra.tag_focus": "ESPECIALIZACIÓN",
+        "infra.footer_text": "Entorno: Formación continua & Experiencia profesional",
+        "about.tag": "// 01. PERFIL",
+        "about.title": "Sobre mí",
+        "about.p1": "Soy Administrador de Sistemas Junior con vocación técnica por la infraestructura, el soporte y la ciberseguridad. Mi formación combina un Grado Medio (SMR), un Grado Superior (ASIR) y un Curso de Especialización en Ciberseguridad, lo que me ha otorgado una visión integral: desde el hardware y cableado hasta la administración de identidades en la nube.",
+        "about.p2": "Cuento con experiencia práctica en entornos reales gracias a mis periodos en Geotexan S.A. (administración de Active Directory, Azure AD, soporte e infraestructura IT) y en el Hospital Infanta Elena (mantenimiento de red, hardware y soporte crítico a personal sanitario y administrativo).",
+        "about.callout": "\"Mi meta profesional es integrarme en un equipo de sistemas o ciberseguridad donde pueda aplicar mis conocimientos en resolución de incidencias, control de accesos y administración segura de infraestructura.\"",
+        "about.sidebar_title": "Ficha Técnica",
+        "about.label_residence": "Residencia",
+        "about.val_residence": "Huelva, España",
+        "about.label_langs": "Idiomas",
+        "about.val_langs": "Español (Nativo) · Inglés (B1)",
+        "about.label_identity": "Especialidad",
+        "about.val_identity": "Sistemas, Redes & Seguridad",
+        "exp.tag": "// 02. TRAYECTORIA",
+        "exp.title": "Experiencia Práctica",
+        "exp.subtitle": "Experiencia demostrable en entornos empresariales y sanitarios de misión crítica.",
+        "exp.geo_role": "Administrador de Sistemas IT — Estudiante en Prácticas",
+        "exp.geo_company": "Geotexan S.A.",
+        "exp.geo_period": "Mar 2025 — Jun 2025",
+        "exp.geo_type": "Prácticas Profesionales",
+        "exp.geo_t1": "Administración y gobierno de identidades mediante Active Directory, Azure AD y Microsoft 365 Admin Center.",
+        "exp.geo_t2": "Gestión granular de usuarios, grupos, permisos y control de accesos basados en principios de mínimo privilegio.",
+        "exp.geo_t3": "Resolución de incidencias técnicas de nivel 1 y 2, garantizando soporte eficaz a los puestos de trabajo.",
+        "exp.geo_t4": "Mantenimiento proactivo de la infraestructura IT y participación en procesos de digitalización corporativa.",
+        "exp.geo_t5": "Aplicación de medidas básicas de ciberseguridad y protección de los puestos de trabajo de la compañía.",
+        "exp.hosp_role": "Técnico Informático — Estudiante en Prácticas",
+        "exp.hosp_company": "Hospital Infanta Elena",
+        "exp.hosp_period": "Mar 2023 — Jun 2023",
+        "exp.hosp_type": "Prácticas Profesionales",
+        "exp.hosp_t1": "Diagnóstico y resolución de incidencias en redes de comunicaciones, hardware y software en entorno hospitalario.",
+        "exp.hosp_t2": "Instalación, configuración y despliegue de puestos cliente para personal sanitario y administrativo.",
+        "exp.hosp_t3": "Mantenimiento correctivo y preventivo garantizando la alta disponibilidad y continuidad del servicio.",
+        "exp.hosp_t4": "Atención y soporte técnico presencial y remoto ante incidencias operativas urgentes.",
+        "stack.tag": "// 03. HABILIDADES TÉCNICAS",
+        "stack.title": "Stack Tecnológico",
+        "stack.subtitle": "Tecnologías respaldadas por mi formación y experiencia práctica.",
+        "stack.cat_systems": "Sistemas Operativos & Redes",
+        "stack.cat_identity": "Identidad & Ecosistema Microsoft",
+        "stack.cat_virtualization": "Virtualización & Hipervisores",
+        "stack.cat_support": "Soporte Técnico & Acceso Remoto",
+        "stack.windows_desc": "Administración de clientes y entornos corporativos Windows.",
+        "stack.linux_desc": "Gestión por línea de comandos, servicios y administración base.",
+        "stack.networking_desc": "Direccionamiento IP, resolución de incidencias LAN y cableado.",
+        "stack.ad_desc": "Gestión de árboles de dominio, usuarios, grupos y políticas.",
+        "stack.azure_desc": "Administración de identidades híbridas y Azure Portal.",
+        "stack.m365_desc": "Gobierno de buzones, licencias y centro de administración.",
+        "stack.proxmox_desc": "Entornos de virtualización en laboratorio y gestión de máquinas.",
+        "stack.vmware_desc": "Creación y gestión de entornos virtuales para pruebas técnicas.",
+        "stack.vbox_desc": "Aislamiento de bancos de pruebas para testing de sistemas.",
+        "stack.anydesk_desc": "Asistencia remota ágil a usuarios finales.",
+        "stack.teamviewer_desc": "Herramienta corporativa de soporte a distancia y mantenimiento.",
+        "stack.rustdesk_desc": "Solución de escritorio remoto alternativa y de código abierto.",
+        "sec.tag": "// 04. ESPECIALIZACIÓN DEFENSIVA",
+        "sec.title": "Ciberseguridad",
+        "sec.subtitle": "Competencias adquiridas durante el Curso de Especialización.",
+        "sec.hardening_title": "Hardening de Sistemas",
+        "sec.hardening_desc": "Cierre de puertos y servicios innecesarios, minimización de superficie de ataque y directivas seguras.",
+        "sec.access_title": "Control de Accesos & Permisos",
+        "sec.access_desc": "Implementación del principio de mínimo privilegio en Active Directory y sistemas locales.",
+        "sec.vuln_title": "Gestión de Vulnerabilidades",
+        "sec.vuln_desc": "Identificación de brechas conocidas, avisos de seguridad y parches preventivos.",
+        "sec.backup_title": "Copias de Seguridad (Backups)",
+        "sec.backup_desc": "Estrategias de respaldo para mitigar fallos físicos, lógicos o ransomware.",
+        "proj.tag": "// 05. DEMOSTRACIÓN TÉCNICA",
+        "proj.title": "Laboratorios & Proyectos",
+        "proj.subtitle": "Casos prácticos planificados y en desarrollo para evidenciar metodología técnica.",
+        "proj.status_dev": "En desarrollo",
+        "proj.status_planned": "Próximamente",
+        "proj.ad_title": "Laboratorio Active Directory & GPO",
+        "proj.ad_desc": "Despliegue de un bosque local de dominio: unidades organizativas, control de accesos e implantación de directivas.",
+        "proj.ad_arch": "Windows Server 2022 ➔ DC ➔ OUs ➔ Windows 11 Clients",
+        "proj.linux_title": "Hardening de Servidor Linux",
+        "proj.linux_desc": "Configuración segura de servidor Debian/Ubuntu con autenticación exclusivamente por clave SSH, reglas UFW y auditoría.",
+        "proj.linux_arch": "Internet ➔ UFW / Firewall ➔ SSH Key-Only ➔ Servidor Hardened",
+        "proj.proxmox_title": "Infraestructura Homelab en Proxmox",
+        "proj.proxmox_desc": "Segmentación de redes virtuales para entornos de pruebas de sistemas y servicios esenciales con snapshots periódicos.",
+        "proj.proxmox_arch": "Hipervisor Proxmox VE ➔ VLANs ➔ VMs Linux / Windows",
+        "proj.cta_repo": "Repositorio",
+        "proj.cta_doc": "Documentación",
+        "lab.tag": "// 06. ARQUITECTURA PROPUESTA",
+        "lab.title": "Homelab / IT Lab",
+        "lab.subtitle": "Diseño de la infraestructura de laboratorio para pruebas de virtualización y seguridad.",
+        "lab.notice": "Nota de transparencia técnica: Banco de pruebas experimental para formación continua.",
+        "lab.layer1_title": "PUNTO DE ACCESO / ENLACE EXTERNO",
+        "lab.layer1_desc": "Conexión a red con filtrado perimetral y aislamiento",
+        "lab.layer2_title": "HIPERVISOR PRINCIPAL (PROXMOX VE)",
+        "lab.layer2_desc": "Recursos virtualizados, almacenamiento y snapshots",
+        "lab.vm1_title": "VM Domain Controller",
+        "lab.vm1_desc": "Pruebas de Active Directory y GPO",
+        "lab.vm2_title": "VM Linux Services",
+        "lab.vm2_desc": "Servicios de soporte y administración",
+        "lab.vm3_title": "Clientes de Prueba",
+        "lab.vm3_desc": "Entornos aislados Windows / Linux",
+        "edu.tag": "// 07. ANTECEDENTES ACADÉMICOS",
+        "edu.title": "Formación Oficial",
+        "edu.subtitle": "Trayectoria académica reglada en sistemas y ciberseguridad.",
+        "edu.c1_title": "Curso de Especialización en Ciberseguridad",
+        "edu.c1_period": "2025 — 2026",
+        "edu.c1_desc": "Hardening, análisis de incidentes, protección de redes y normativas de seguridad.",
+        "edu.c2_title": "CFGS Administración de Sistemas Informáticos en Red (ASIR)",
+        "edu.c2_period": "2023 — 2025",
+        "edu.c2_desc": "Sistemas de servidor, bases de datos, redes, seguridad perimetral y virtualización.",
+        "edu.c3_title": "CFGM Sistemas Microinformáticos y Redes (SMR)",
+        "edu.c3_period": "2021 — 2023",
+        "edu.c3_desc": "Montaje de hardware, cableado estructurado, mantenimiento y configuración cliente.",
+        "contact.tag": "// 08. CONTACTO DIRECTO",
+        "contact.title": "Iniciar Conversación",
+        "contact.subtitle": "¿Buscas un perfil junior de sistemas proactivo y con orientación a la seguridad? Contáctame.",
+        "contact.email_label": "Correo Electrónico",
+        "contact.linkedin_label": "Perfil Profesional",
+        "contact.github_label": "Repositorios de Código",
+        "contact.location_label": "Ubicación",
+        "contact.location_val": "Huelva, España (Disponible remoto / híbrido / presencial)",
+        "contact.form_name": "Nombre completo",
+        "contact.form_name_ph": "Ej. Juan Pérez",
+        "contact.form_email": "Correo de contacto",
+        "contact.form_email_ph": "juan.perez@empresa.com",
+        "contact.form_msg": "Mensaje",
+        "contact.form_msg_ph": "Hola Abel, hemos visto tu perfil...",
+        "contact.form_btn": "Enviar consulta vía Mailto"
+      },
+      en: {
+        "nav.about": "About",
+        "nav.experience": "Experience",
+        "nav.stack": "Stack",
+        "nav.cybersecurity": "Cybersecurity",
+        "nav.projects": "Projects",
+        "nav.homelab": "Homelab",
+        "nav.education": "Education",
+        "nav.contact": "Contact",
+        "nav.cv": "Download CV",
+        "hero.badge": "IT SYSTEMS & CYBERSECURITY // EARLY CAREER",
+        "hero.title": "Abel Sánchez Ramos",
+        "hero.role": "Junior Systems Administrator | Cybersecurity",
+        "hero.lead": "Systems Administrator focused on IT infrastructure, advanced tech support, Microsoft ecosystems (Active Directory, Azure AD, M365), and defensive cybersecurity specialization.",
+        "hero.cta_projects": "View Technical Projects",
+        "hero.cta_contact": "Contact Me",
+        "hero.metric_exp": "Professional Internships",
+        "hero.metric_exp_val": "2 Companies",
+        "hero.metric_edu": "Specialization",
+        "hero.metric_edu_val": "Cybersecurity",
+        "hero.metric_location": "Location",
+        "hero.metric_location_val": "Huelva, Spain",
+        "infra.panel_title": "INFRASTRUCTURE DASHBOARD",
+        "infra.status_operational": "SYSTEM OPERATIONAL",
+        "infra.serv_identity": "Identity & Directory",
+        "infra.serv_virtualization": "Virtualization & Servers",
+        "infra.serv_security": "Security & Continuity",
+        "infra.serv_support": "Networking & IT Support",
+        "infra.tag_prod": "PRODUCTION",
+        "infra.tag_lab": "LABORATORY",
+        "infra.tag_focus": "SPECIALIZATION",
+        "infra.footer_text": "Environment: Continuous learning & Professional experience",
+        "about.tag": "// 01. PROFILE",
+        "about.title": "About Me",
+        "about.p1": "I am a Junior Systems Administrator with a strong technical drive for infrastructure, IT support, and cybersecurity. My academic path includes SMR, ASIR, and a Post-Graduate Specialization in Cybersecurity, offering me an end-to-end foundation from hardware diagnostics to enterprise identity governance.",
+        "about.p2": "I bring practical experience from internships at Geotexan S.A. (Active Directory, Azure AD, M365, IT support) and Hospital Infanta Elena (network troubleshooting, hardware repairs, and critical medical support).",
+        "about.callout": "\"My professional ambition is to join a systems or security team where I can leverage my problem-solving abilities and secure administration practices.\"",
+        "about.sidebar_title": "Technical Factsheet",
+        "about.label_residence": "Location",
+        "about.val_residence": "Huelva, Spain",
+        "about.label_langs": "Languages",
+        "about.val_langs": "Spanish (Native) · English (B1)",
+        "about.label_identity": "Specialty",
+        "about.val_identity": "Systems, Networks & Security",
+        "exp.tag": "// 02. TRACK RECORD",
+        "exp.title": "Practical Experience",
+        "exp.subtitle": "Hands-on experience in business-critical and healthcare environments.",
+        "exp.geo_role": "IT Systems Administrator — Intern",
+        "exp.geo_company": "Geotexan S.A.",
+        "exp.geo_period": "Mar 2025 — Jun 2025",
+        "exp.geo_type": "Professional Internship",
+        "exp.geo_t1": "Administration of corporate identities across Active Directory, Azure AD, and Microsoft 365 Admin Center.",
+        "exp.geo_t2": "Granular user, group, permission, and access control management based on least-privilege principles.",
+        "exp.geo_t3": "Tier 1 & 2 technical troubleshooting, ensuring swift support and incident mitigation.",
+        "exp.geo_t4": "Proactive IT infrastructure maintenance and participation in digital workflows.",
+        "exp.geo_t5": "Implementation of baseline cybersecurity measures and system protection.",
+        "exp.hosp_role": "IT Technician — Intern",
+        "exp.hosp_company": "Hospital Infanta Elena",
+        "exp.hosp_period": "Mar 2023 — Jun 2023",
+        "exp.hosp_type": "Professional Internship",
+        "exp.hosp_t1": "Diagnostic and troubleshooting of network communications, hardware, and clinical software.",
+        "exp.hosp_t2": "Installation, configuration, and endpoint deployment for hospital personnel.",
+        "exp.hosp_t3": "Preventive and corrective maintenance guaranteeing high availability.",
+        "exp.hosp_t4": "On-site and remote technical support for time-sensitive operational tickets.",
+        "stack.tag": "// 03. TECHNICAL SKILLS",
+        "stack.title": "Technology Stack",
+        "stack.subtitle": "Toolsets backed directly by formal training and operational experience.",
+        "stack.cat_systems": "Operating Systems & Networking",
+        "stack.cat_identity": "Identity & Microsoft Ecosystem",
+        "stack.cat_virtualization": "Virtualization & Hypervisors",
+        "stack.cat_support": "Technical Support & Remote Access",
+        "stack.windows_desc": "Corporate client and server environment administration.",
+        "stack.linux_desc": "Command-line administration, services configuration, and essential hardening.",
+        "stack.networking_desc": "IP addressing, LAN troubleshooting, switches, and structured cabling.",
+        "stack.ad_desc": "Domain tree management, users, groups, and Group Policy Objects.",
+        "stack.azure_desc": "Hybrid identity management, tenant monitoring, and Azure Portal.",
+        "stack.m365_desc": "Mailbox administration, licensing, and Admin Center policies.",
+        "stack.proxmox_desc": "Lab virtualization environment setup and virtual machine lifecycle.",
+        "stack.vmware_desc": "Creation and management of virtual environments for testing.",
+        "stack.vbox_desc": "Isolated sandboxes for local software and OS verification.",
+        "stack.anydesk_desc": "Fast remote assistance for distributed end users.",
+        "stack.teamviewer_desc": "Enterprise remote connection and unattended maintenance tool.",
+        "stack.rustdesk_desc": "Open-source remote desktop alternative.",
+        "sec.tag": "// 04. DEFENSIVE SPECIALIZATION",
+        "sec.title": "Cybersecurity",
+        "sec.subtitle": "Core disciplines acquired during the Cybersecurity Specialization Program.",
+        "sec.hardening_title": "System Hardening",
+        "sec.hardening_desc": "Disabling unneeded ports and services, reducing attack surfaces, and baseline policies.",
+        "sec.access_title": "Access Control & Permissions",
+        "sec.access_desc": "Enforcement of least privilege across Active Directory trees and local systems.",
+        "sec.vuln_title": "Vulnerability Management",
+        "sec.vuln_desc": "Tracking CVE advisories, assessing exposure, and patch deployment schedules.",
+        "sec.backup_title": "Backup Strategies",
+        "sec.backup_desc": "Data protection schemes to mitigate hardware failures and ransomware scenarios.",
+        "proj.tag": "// 05. TECHNICAL EVIDENCE",
+        "proj.title": "Labs & Projects",
+        "proj.subtitle": "Planned and in-progress lab scenarios demonstrating technical methodology.",
+        "proj.status_dev": "In Development",
+        "proj.status_planned": "Planned",
+        "proj.ad_title": "Active Directory & GPO Lab",
+        "proj.ad_desc": "Deployment of a local domain forest: OU structuring, RBAC permissions, and password policies.",
+        "proj.ad_arch": "Windows Server 2022 ➔ DC ➔ OUs ➔ Windows 11 Clients",
+        "proj.linux_title": "Hardened Linux Server",
+        "proj.linux_desc": "Secure Debian/Ubuntu server build with SSH key-only access, UFW rules, and auditing.",
+        "proj.linux_arch": "Internet ➔ UFW / Firewall ➔ SSH Key-Only ➔ Hardened Server",
+        "proj.proxmox_title": "Proxmox Homelab Infrastructure",
+        "proj.proxmox_desc": "Virtual network segmentation separating test environments with scheduled snapshots.",
+        "proj.proxmox_arch": "Proxmox VE Hypervisor ➔ VLANs ➔ Linux / Windows VMs",
+        "proj.cta_repo": "Repository",
+        "proj.cta_doc": "Documentation",
+        "lab.tag": "// 06. PROPOSED ARCHITECTURE",
+        "lab.title": "Homelab / IT Lab",
+        "lab.subtitle": "Design blueprint of the personal lab infrastructure leveraged for virtualization.",
+        "lab.notice": "Transparency Note: Experimental sandbox maintained for continuous learning.",
+        "lab.layer1_title": "ACCESS POINT / EXTERNAL LINK",
+        "lab.layer1_desc": "Network connection with perimeter filtering and isolation",
+        "lab.layer2_title": "PRIMARY HYPERVISOR (PROXMOX VE)",
+        "lab.layer2_desc": "Virtualized resource allocation, storage pooling, and snapshots",
+        "lab.vm1_title": "VM Domain Controller",
+        "lab.vm1_desc": "Active Directory and Group Policy tests",
+        "lab.vm2_title": "VM Linux Services",
+        "lab.vm2_desc": "Support services and admin utilities",
+        "lab.vm3_title": "Testing Clients",
+        "lab.vm3_desc": "Isolated Windows / Linux testbeds",
+        "edu.tag": "// 07. ACADEMIC BACKGROUND",
+        "edu.title": "Formal Education",
+        "edu.subtitle": "Accredited studies in IT infrastructure and cybersecurity.",
+        "edu.c1_title": "Cybersecurity Specialization Course",
+        "edu.c1_period": "2025 — 2026",
+        "edu.c1_desc": "Hardening, incident response, network defense, and information security standards.",
+        "edu.c2_title": "Higher Vocational Degree in Network Systems Administration (ASIR)",
+        "edu.c2_period": "2023 — 2025",
+        "edu.c2_desc": "Server OS administration, databases, network services, perimeter security, and virtualization.",
+        "edu.c3_title": "Vocational Degree in Microcomputer Systems & Networks (SMR)",
+        "edu.c3_period": "2021 — 2023",
+        "edu.c3_desc": "Hardware assembly, structured cabling, preventive maintenance, and workstation setups.",
+        "contact.tag": "// 08. DIRECT CONTACT",
+        "contact.title": "Get in Touch",
+        "contact.subtitle": "Looking for a driven Junior SysAdmin with security awareness? Reach out directly.",
+        "contact.email_label": "Email Address",
+        "contact.linkedin_label": "Professional Profile",
+        "contact.github_label": "Code Repositories",
+        "contact.location_label": "Location",
+        "contact.location_val": "Huelva, Spain (Open to Remote / Hybrid / On-site)",
+        "contact.form_name": "Full Name",
+        "contact.form_name_ph": "e.g. John Doe",
+        "contact.form_email": "Email Address",
+        "contact.form_email_ph": "john.doe@company.com",
+        "contact.form_msg": "Message",
+        "contact.form_msg_ph": "Hello Abel, we reviewed your profile...",
+        "contact.form_btn": "Send Inquiry via Mailto"
+      }
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Theme Switcher
+      const themeBtn = document.getElementById('theme-toggle');
+      const savedTheme = localStorage.getItem('site-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      updateThemeBtn(savedTheme);
+
+      if (themeBtn) {
+        themeBtn.addEventListener('click', () => {
+          const current = document.documentElement.getAttribute('data-theme');
+          const next = current === 'dark' ? 'light' : 'dark';
+          document.documentElement.setAttribute('data-theme', next);
+          localStorage.setItem('site-theme', next);
+          updateThemeBtn(next);
+        });
+      }
+
+      function updateThemeBtn(theme) {
+        const icon = themeBtn.querySelector('.btn-icon');
+        const text = themeBtn.querySelector('.btn-text');
+        if (theme === 'dark') {
+          icon.textContent = '☀';
+          text.textContent = 'LIGHT';
+        } else {
+          icon.textContent = '☾';
+          text.textContent = 'DARK';
+        }
+      }
+
+      // 2. Idiomas (i18n)
+      const langBtn = document.getElementById('lang-toggle');
+      const savedLang = localStorage.getItem('site-lang') || 'es';
+      applyLang(savedLang);
+
+      if (langBtn) {
+        langBtn.addEventListener('click', () => {
+          const active = document.documentElement.getAttribute('lang') || 'es';
+          const next = active === 'es' ? 'en' : 'es';
+          applyLang(next);
+          localStorage.setItem('site-lang', next);
+        });
+      }
+
+      function applyLang(lang) {
+        if (!translations[lang]) return;
+        document.documentElement.setAttribute('lang', lang);
+        if (langBtn) langBtn.querySelector('.btn-text').textContent = lang === 'es' ? 'EN' : 'ES';
+
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+          const k = el.getAttribute('data-i18n');
+          if (translations[lang][k]) el.textContent = translations[lang][k];
+        });
+
+        document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+          const k = el.getAttribute('data-i18n-ph');
+          if (translations[lang][k]) el.setAttribute('placeholder', translations[lang][k]);
+        });
+      }
+
+      // 3. Menú móvil
+      const mobileToggle = document.querySelector('.btn-mobile-toggle');
+      const navLinks = document.querySelector('.nav-links');
+      if (mobileToggle && navLinks) {
+        mobileToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+        navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+      }
+
+      // 4. Contacto (Mailto)
+      const form = document.getElementById('contact-form');
+      if (form) {
+        form.addEventListener('submit', e => {
+          e.preventDefault();
+          const name = document.getElementById('cf-name').value.trim();
+          const email = document.getElementById('cf-email').value.trim();
+          const message = document.getElementById('cf-message').value.trim();
+          const subject = encodeURIComponent(`[Portfolio IT] Contacto de ${name}`);
+          const body = encodeURIComponent(`Nombre: ${name}\nEmail: ${email}\n\nMensaje:\n${message}`);
+          window.location.href = `mailto:asannchez.2005@gmail.com?subject=${subject}&body=${body}`;
+        });
+      }
+    });
+  </script>
 </body>
 </html>
